@@ -23,7 +23,7 @@
                         </div>
                         <div class="card-bottom">
                             <div class="card-upper">
-                                <router-link :to="'/blog/detail'" class="card-title">标题</router-link>
+                                <router-link :to="'/detail'" class="card-title">标题</router-link>
                                 <span class="card-des">一句话简短描述内容</span>
                             </div>
                             <div class="card-lower">

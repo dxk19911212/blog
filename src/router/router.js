@@ -1,4 +1,5 @@
 import Header from '../views/header';
+import Header2 from '../views/header2';
 
 // 懒加载
 const Index = () => import('../views/index');
@@ -22,7 +23,7 @@ export const constantRouter = [
     },
     {
         path: '/detail',
-        component: Header,
+        component: Header2,
         children: [
             {
                 path: '',
