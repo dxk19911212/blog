@@ -10,10 +10,6 @@
 
 <style lang="scss">
 
-    .animated {
-        animation-duration: .377s;
-    }
-
     html {
         background-color: whitesmoke;
         font: 14px/20px "Lato", Arial, sans-serif;

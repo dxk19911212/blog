@@ -40,7 +40,7 @@
                 </nav>
             </div>
 
-            <div class="hero-head">
+            <div class="hero-head animated fadeIn">
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-brand">
@@ -79,7 +79,7 @@
                 </nav>
             </div>
 
-            <div class="hero-body">
+            <div class="hero-body animated fadeIn">
                 <div class="container">
                     <div class="columes">
                         <div class="column is-8 is-offset-2 has-text-centered">
@@ -94,7 +94,7 @@
                 </div>
             </div>
 
-            <div class="hero-foot">
+            <div class="hero-foot animated fadeIn">
                 <nav class="tabs is-boxed is-fullwidth">
                     <div class="container">
                         <ul>
@@ -110,7 +110,14 @@
                 </nav>
             </div>
         </section>
-        <router-view class="animated"/>
+        <transition mode="out-in"
+                    enter-active-class="fadeIn"
+                    leave-active-class="fadeOut"
+                    appear>
+            <keep-alive>
+                <router-view class="animated"/>
+            </keep-alive>
+        </transition>
     </div>
 </template>
 

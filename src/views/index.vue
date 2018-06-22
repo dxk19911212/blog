@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="container">
-            <ul class="category-list">
+            <ul class="category-list animated bounceInLeft">
                 <li>
                     <a>Spring Boot</a>
                     <span class="b-badge gelatine">3</span>
@@ -65,11 +65,11 @@
                                 <div class="pull-right">
                                     <div class="view-love">
                                         <span class="icon">
-                                            <i class="heart"></i>
+                                            <i class="fas fa-heart"></i>
                                         </span>
                                         <span>1,530</span>
                                         <span class="icon">
-                                            <i class="eys"></i>
+                                            <i class="fas fa-eye"></i>
                                         </span>
                                         <span>2,470</span>
                                     </div>
@@ -96,11 +96,11 @@
                                 <div class="pull-right">
                                     <div class="view-love">
                                         <span class="icon">
-                                            <i class="heart"></i>
+                                            <i class="fas fa-heart"></i>
                                         </span>
                                         <span>1,530</span>
                                         <span class="icon">
-                                            <i class="eys"></i>
+                                            <i class="fas fa-eye"></i>
                                         </span>
                                         <span>2,470</span>
                                     </div>
@@ -127,11 +127,11 @@
                                 <div class="pull-right">
                                     <div class="view-love">
                                         <span class="icon">
-                                            <i class="heart"></i>
+                                            <i class="fas fa-heart"></i>
                                         </span>
                                         <span>1,530</span>
                                         <span class="icon">
-                                            <i class="eys"></i>
+                                            <i class="fas fa-eye"></i>
                                         </span>
                                         <span>2,470</span>
                                     </div>
@@ -158,11 +158,11 @@
                                 <div class="pull-right">
                                     <div class="view-love">
                                         <span class="icon">
-                                            <i class="heart"></i>
+                                            <i class="fas fa-heart"></i>
                                         </span>
                                         <span>1,530</span>
                                         <span class="icon">
-                                            <i class="eys"></i>
+                                            <i class="fas fa-eye"></i>
                                         </span>
                                         <span>2,470</span>
                                     </div>
@@ -189,11 +189,11 @@
                                 <div class="pull-right">
                                     <div class="view-love">
                                         <span class="icon">
-                                            <i class="heart"></i>
+                                            <i class="fas fa-heart"></i>
                                         </span>
                                         <span>1,530</span>
                                         <span class="icon">
-                                            <i class="eys"></i>
+                                            <i class="fas fa-eye"></i>
                                         </span>
                                         <span>2,470</span>
                                     </div>
@@ -220,11 +220,11 @@
                                 <div class="pull-right">
                                     <div class="view-love">
                                         <span class="icon">
-                                            <i class="heart"></i>
+                                            <i class="fas fa-heart"></i>
                                         </span>
                                         <span>1,530</span>
                                         <span class="icon">
-                                            <i class="eys"></i>
+                                            <i class="fas fa-eye"></i>
                                         </span>
                                         <span>2,470</span>
                                     </div>
@@ -251,11 +251,11 @@
                                 <div class="pull-right">
                                     <div class="view-love">
                                         <span class="icon">
-                                            <i class="heart"></i>
+                                            <i class="fas fa-heart"></i>
                                         </span>
                                         <span>1,530</span>
                                         <span class="icon">
-                                            <i class="eys"></i>
+                                            <i class="fas fa-eye"></i>
                                         </span>
                                         <span>2,470</span>
                                     </div>
