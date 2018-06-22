@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="hero is-primary is-large is-animated">
+        <section class="hero is-primary is-medium is-animated">
             <div id="hero-head-clone" :class="scroll === 'up' ? 'is-active' : ''" class="hero-head fixed">
                 <nav class="navbar">
                     <div class="container">

@@ -1,6 +1,7 @@
 <template>
     <div>
-        <section class="hero is-primary is-large is-animated">
+        <section class="hero is-primary is-medium">
+            <!--<div class="background-img"></div>-->
             <div id="hero-head-clone" :class="scroll === 'up' ? 'is-active' : ''" class="hero-head fixed">
                 <nav class="navbar">
                     <div class="container">
@@ -225,10 +226,13 @@
         }
     }
 
-    .is-animated {
+    .background-img {
+        position: absolute;
         background: url("https://cssninja.io/themes/cssninja/assets/images/logo/hanzo.svg") no-repeat center;
-        box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
-        filter: blur(15px) brightness(110%);
+        z-index: -1;
+        filter: blur(20px);
+        width: 100%;
+        height: 80%;
     }
 
     .container {
