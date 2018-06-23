@@ -15,7 +15,7 @@ export const constantRouter = [
                 path: '',
                 name: '主页',
                 meta: {
-                    title: '主页'
+                    title: '一绪に！！(*^▽^*)'
                 },
                 component: Index
             }
@@ -27,9 +27,9 @@ export const constantRouter = [
         children: [
             {
                 path: '',
-                name: '详情页',
+                name: 'iishoni - detail',
                 meta: {
-                    title: '详情页'
+                    title: 'iishoni - detail'
                 },
                 component: Detail
             }
