@@ -2,20 +2,79 @@
     <section>
         <div class="container">
             <div class="columns is-multiline">
-                <div class="column is-0-tablet is-1-desktop">
-                    <div class="card-panel animated bounceIn"
-                         :class="isMobile ? 'animated fadeOutLeft' : 'animated bounceInLeft'">
-                        <div class="button-1 badge" data-badge="1250"></div>
-                        <div class="button-1 badge" data-badge="1250"></div>
-                        <div class="button-1 badge" data-badge="1250"></div>
+                <div class="column is-hidden-touch is-1-desktop">
+                    <div class="card-left">
+                        <div class="badge-button badge animated bounceInLeft button-1" data-badge="1,530">
+                            <span class="icon is-large">
+                                <i class="fas fa-heart"></i>
+                            </span>
+                        </div>
+                        <div class="badge-button badge animated bounceInLeft button-2" data-badge="2,470">
+                            <span class="icon is-large">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <div class="badge-button badge animated bounceInLeft button-3" data-badge="149">
+                            <span class="icon is-large">
+                                <i class="fas fa-stream"></i>
+                            </span>
+                        </div>
+                        <div class="badge-button badge animated bounceInLeft button-4">
+                            <span class="icon is-large">
+                                <i class="fas fa-weibo"></i>
+                            </span>
+                        </div>
+                        <div class="badge-button badge animated bounceInLeft button-5">
+                            <span class="icon is-large">
+                                <i class="fas fa-qq"></i>
+                            </span>
+                        </div>
+                        <div class="badge-button badge animated bounceInLeft button-6">
+                            <span class="icon is-large">
+                                <i class="fas fa-weixin"></i>
+                            </span>
+                        </div>
                     </div>
                 </div>
-                <div class="column is-full-tablet is-11-desktop">
-                    <div class="card animated zoomIn">
+                <div class="column is-full-tablet is-8-desktop">
+                    <div class="card animated bounceInUp">
                         <div class="card-top">
                             <div class="card-img img1"></div>
                         </div>
-                        <div class="card-area"></div>
+                        <div class="card-area">
+                            <vue-markdown :source="content"></vue-markdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-hidden-touch is-3-desktop">
+                    <div class="columns is-multiline">
+                        <div class="column">
+                            <div class="card pic-1 animated bounceInRight">
+                                <div class="card-box">
+                                    <img src="../assets/pic1.png"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-multiline">
+                        <div class="column">
+                            <div class="card pic-2 animated bounceInRight">
+                                <div class="card-box">
+                                    <img src="../assets/pic2.jpg"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-multiline">
+                <div class="column is-hidden-touch is-1-desktop"></div>
+                <div class="column is-full-tablet is-8-desktop">
+                    <div class="card animated bounceInUp">
+                        <div class="card-comment">
+                            <vue-markdown>评论区</vue-markdown>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -24,14 +83,18 @@
 </template>
 
 <script>
-    import {L2Dwidget} from 'live2d-widget/src/index'
+    import VueMarkdown from 'vue-markdown'
 
     export default {
+        components: {
+            VueMarkdown
+        },
         data() {
             return {
                 width: 1088,
                 ratio: 3,
-                isMobile: false
+                isMobile: false,
+                content: '# 图文区'
             }
         },
         methods: {
@@ -46,27 +109,58 @@
                 this.handleCardPanel()
             };
             window.addEventListener('resize', handler);
-            //     L2Dwidget.init({
-            //         model: {
-            //             jsonPath: 'http://www.52cik.com/bilibili-haruna/assets/haruna/22/model.2018.lover.json'
-            //         }
-            //     });
         }
     }
 </script>
 
 <style lang="scss" scoped>
+    @import "~bulma/sass/utilities/_all";
+    @import "~bulma-badge/dist/bulma-badge";
 
     section {
         padding: 3rem 0
     }
 
     .img1 {
-        background: url("../assets/demo/confirmation-button-k.gif") no-repeat center center;
+        background: url("../assets/demo/easyship.jpg") no-repeat center center;
+    }
+
+    .card-left {
+        position: fixed;
+        /*top: 35rem;*/
+
+        .badge-button {
+            position: relative;
+            margin-bottom: .75rem;
+            width: 3rem;
+            height: 3rem;
+            background: #fff no-repeat 50%;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .04);
+            cursor: pointer;
+            border: 1px solid #999;
+        }
+
+        .button-2 {
+            animation-delay: .1s;
+        }
+        .button-3 {
+            animation-delay: .2s;
+        }
+        .button-4 {
+            margin-top: 50px;
+            animation-delay: .3s;
+        }
+        .button-5 {
+            animation-delay: .4s;
+        }
+        .button-6 {
+            animation-delay: .5s;
+        }
     }
 
     .card {
-        margin: 20px;
+        margin: 10px;
         border-radius: 20px;
         background-color: #fff;
         transition: all .2s ease-out;
@@ -78,8 +172,6 @@
         }
 
         .card-top {
-            overflow: hidden;
-            cursor: pointer;
             position: relative;
             padding-top: 70%;
 
@@ -96,26 +188,22 @@
         }
 
         .card-area {
-            overflow: hidden;
-            cursor: pointer;
             position: relative;
-            height: 300rem;
+            height: 100rem;
+            padding: 30px;
         }
-    }
 
-    .card-panel {
-        position: fixed;
-        /*top: 35rem;*/
+        .card-box {
+            padding: 20px;
+        }
 
-        .button-1 {
-            position: relative;
-            margin-bottom: .75rem;
-            width: 3rem;
-            height: 3rem;
-            background: #fff no-repeat 50%;
-            border-radius: 50%;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .04);
-            cursor: pointer;
+        &.pic-2 {
+            animation-delay: .2s;
+        }
+
+        .card-comment {
+            height: 30rem;
+            padding: 30px;
         }
     }
 

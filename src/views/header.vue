@@ -6,7 +6,7 @@
                     <div class="container">
                         <div class="navbar-brand">
                             <a class="navbar-item">
-                                <img class="logo" src="https://cssninja.io/themes/cssninja/assets/images/logo/hanzo.svg">
+                                <img class="logo" src="../assets/avatar.jpg">
                             </a>
                             <span id="navbar-burger-clone" class="navbar-burger burger clone"
                                   data-target="navbarMenuClone" @click="showCloneBurger">

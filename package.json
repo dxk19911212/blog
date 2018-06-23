@@ -4,7 +4,7 @@
   "description": "Vue Parcel Bulma Blog",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel index.html",
+    "dev": "parcel index.html --no-cache",
     "build": "parcel build index.html --no-minify --public-url /",
     "clean": "rimraf -rf .cache dist"
   },
@@ -19,14 +19,15 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "bulma": "^0.7.1",
     "bulma-badge": "^1.0.1",
-    "bulma-extensions": "^1.0.32",
     "current-device": "^0.7.8",
     "live2d-widget": "^3.0.5",
+    "live2d-widget-model-koharu": "^1.0.5",
     "node-sass": "^4.9.0",
-    "parcel": "^1.9.1",
+    "parcel": "^1.9.2",
     "rimraf": "^2.6.2",
     "vue": "^2.5.16",
     "vue-bulma-pagination": "^1.2.0",
+    "vue-markdown": "^2.2.4",
     "vue-template-compiler": "^2.5.16",
     "vuex": "^3.0.1"
   }

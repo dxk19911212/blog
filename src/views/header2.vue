@@ -1,14 +1,13 @@
 <template>
     <div>
-        <section class="hero is-primary">
+        <section class="hero is-primary is-animated">
             <!--<div class="background-img"></div>-->
             <div id="hero-head-clone" :class="scroll === 'up' ? 'is-active' : ''" class="hero-head fixed">
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-brand">
                             <a class="navbar-item">
-                                <img class="logo"
-                                     src="https://cssninja.io/themes/cssninja/assets/images/logo/hanzo.svg">
+                                <img class="logo" src="../assets/avatar.jpg">
                             </a>
                             <span id="navbar-burger-clone" class="navbar-burger burger clone"
                                   data-target="navbarMenuClone" @click="showCloneBurger">
@@ -86,10 +85,10 @@
                     <div class="columes">
                         <div class="column is-8 is-offset-2 has-text-centered">
                             <h1 class="title big-title">
-                                这是标题
+                                论萝莉的重要性
                             </h1>
-                            <div class="title-avatar">
-                                <img src="https://cssninja.io/themes/cssninja/assets/images/logo/hanzo.svg" alt="Logo">
+                            <div class="title-avatar has-text-centered">
+                                <img src="../assets/avatar.jpg" alt="Logo">
                                 <div class="title-meta">
                                     <div class="author-name">
                                         Posted by
@@ -100,6 +99,9 @@
                                         <span>2018-06-22</span>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="title-btn has-text-centered">
+                                <router-link :to="'/'" class="primary-btn ">Back to Blog</router-link>
                             </div>
                         </div>
                     </div>
@@ -213,6 +215,24 @@
         }
     }
 
+    .title-btn {
+        padding-top: 30px;
+
+        .primary-btn {
+            border-radius: 500px;
+            padding: 15px 70px;
+            outline: none;
+            border-color: #00c5a9;
+            background-color: #00c5a9;
+            color: #fff;
+            transition: all 0.5s;
+
+            &:hover {
+                box-shadow: 0 14px 26px -12px rgba(0, 197, 169, 0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0, 197, 169, 0.2);
+            }
+        }
+    }
+
     .logo {
         max-height: 3rem !important;
         height: 4rem;
@@ -231,6 +251,10 @@
         to {
             background-position: 0 -350px
         }
+    }
+
+    .is-animated {
+        box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
     }
 
     .background-img {

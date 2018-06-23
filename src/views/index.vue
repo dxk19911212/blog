@@ -19,14 +19,14 @@
                 <div class="column is-6-tablet is-4-desktop">
                     <div class="card">
                         <div class="card-top">
-                            <div class="card-img img1"></div>
+                            <div class="card-img img1" @click="toDetail()"></div>
                         </div>
                         <div class="card-bottom">
                             <div class="card-upper">
-                                <router-link :to="'/detail'" class="card-title">标题</router-link>
+                                <span class="card-title">标题</span>
                                 <span class="card-des">一句话简短描述内容</span>
                             </div>
-                            <div class="card-lower">
+                            <div class="card-lower is-clearfix">
                                 <div class="pull-left">
                                     <a>#vue</a>
                                     <a>#bulma</a>
@@ -50,14 +50,14 @@
                 <div class="column is-6-tablet is-4-desktop">
                     <div class="card">
                         <div class="card-top">
-                            <div class="card-img img2"></div>
+                            <div class="card-img img2" @click="toDetail()"></div>
                         </div>
                         <div class="card-bottom">
                             <div class="card-upper">
                                 <a class="card-title">标题</a>
                                 <span class="card-des">一句话简短描述内容</span>
                             </div>
-                            <div class="card-lower">
+                            <div class="card-lower is-clearfix">
                                 <div class="pull-left">
                                     <a>#vue</a>
                                     <a>#bulma</a>
@@ -81,14 +81,14 @@
                 <div class="column is-6-tablet is-4-desktop">
                     <div class="card">
                         <div class="card-top">
-                            <div class="card-img img3"></div>
+                            <div class="card-img img3" @click="toDetail()"></div>
                         </div>
                         <div class="card-bottom">
                             <div class="card-upper">
                                 <a class="card-title">标题</a>
                                 <span class="card-des">一句话简短描述内容</span>
                             </div>
-                            <div class="card-lower">
+                            <div class="card-lower is-clearfix">
                                 <div class="pull-left">
                                     <a>#vue</a>
                                     <a>#bulma</a>
@@ -112,14 +112,14 @@
                 <div class="column is-6-tablet is-4-desktop">
                     <div class="card">
                         <div class="card-top">
-                            <div class="card-img img4"></div>
+                            <div class="card-img img4" @click="toDetail()"></div>
                         </div>
                         <div class="card-bottom">
                             <div class="card-upper">
                                 <a class="card-title">标题</a>
                                 <span class="card-des">一句话简短描述内容</span>
                             </div>
-                            <div class="card-lower">
+                            <div class="card-lower is-clearfix">
                                 <div class="pull-left">
                                     <a>#vue</a>
                                     <a>#bulma</a>
@@ -143,14 +143,14 @@
                 <div class="column is-6-tablet is-4-desktop">
                     <div class="card">
                         <div class="card-top">
-                            <div class="card-img img5"></div>
+                            <div class="card-img img5" @click="toDetail()"></div>
                         </div>
                         <div class="card-bottom">
                             <div class="card-upper">
                                 <a class="card-title">标题</a>
                                 <span class="card-des">一句话简短描述内容</span>
                             </div>
-                            <div class="card-lower">
+                            <div class="card-lower is-clearfix">
                                 <div class="pull-left">
                                     <a>#vue</a>
                                     <a>#bulma</a>
@@ -174,14 +174,14 @@
                 <div class="column is-6-tablet is-4-desktop">
                     <div class="card">
                         <div class="card-top">
-                            <div class="card-img img6"></div>
+                            <div class="card-img img6" @click="toDetail()"></div>
                         </div>
                         <div class="card-bottom">
                             <div class="card-upper">
                                 <a class="card-title">标题</a>
                                 <span class="card-des">一句话简短描述内容</span>
                             </div>
-                            <div class="card-lower">
+                            <div class="card-lower is-clearfix">
                                 <div class="pull-left">
                                     <a>#vue</a>
                                     <a>#bulma</a>
@@ -205,14 +205,14 @@
                 <div class="column is-6-tablet is-4-desktop">
                     <div class="card">
                         <div class="card-top">
-                            <div class="card-img img7"></div>
+                            <div class="card-img img7" @click="toDetail()"></div>
                         </div>
                         <div class="card-bottom">
                             <div class="card-upper">
                                 <a class="card-title">标题</a>
                                 <span class="card-des">一句话简短描述内容</span>
                             </div>
-                            <div class="card-lower">
+                            <div class="card-lower is-clearfix">
                                 <div class="pull-left">
                                     <a>#vue</a>
                                     <a>#bulma</a>
@@ -236,14 +236,14 @@
                 <div class="column is-6-tablet is-4-desktop">
                     <div class="card">
                         <div class="card-top">
-                            <div class="card-img img8"></div>
+                            <div class="card-img img8" @click="toDetail()"></div>
                         </div>
                         <div class="card-bottom">
                             <div class="card-upper">
                                 <a class="card-title">标题</a>
                                 <span class="card-des">一句话简短描述内容</span>
                             </div>
-                            <div class="card-lower">
+                            <div class="card-lower is-clearfix">
                                 <div class="pull-left">
                                     <a>#vue</a>
                                     <a>#bulma</a>
@@ -271,7 +271,13 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+        methods: {
+            toDetail() {
+                this.$router.push('/detail');
+            }
+        }
+    }
 </script>
 
 <style lang="scss" scoped>
@@ -337,7 +343,7 @@
                 justify-content: center;
                 align-items: center;
                 display: none;
-                background: #7F00FF;
+                background: #00c5a9;
                 border-radius: 200px;
             }
 
@@ -349,9 +355,9 @@
                 transition: all .3s;
 
                 &:hover {
-                    border-color: #9e3dff;
-                    background: #9e3dff;
-                    box-shadow: 0 14px 26px -12px rgba(127, 0, 255, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(127, 0, 255, 0.2) !important;
+                    border-color: #00d1b2;
+                    background: #00d1b2;
+                    box-shadow: 0 14px 26px -12px rgba(0, 209, 178, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 209, 178, 0.2);
                     color: #fff;
 
                     + .b-badge {
@@ -455,7 +461,6 @@
             .card-lower {
                 border-top: 1px solid rgba(67, 91, 113, .1);
                 padding: 11px 20px 13px;
-                overflow: hidden;
 
                 .pull-left {
                     float: left !important;
