@@ -42,7 +42,6 @@
                             <div class="card-img img1"></div>
                         </div>
                         <div class="card-area">
-                            <vue-markdown :source="content"></vue-markdown>
                         </div>
                     </div>
                 </div>
@@ -73,7 +72,10 @@
                 <div class="column is-full-tablet is-8-desktop">
                     <div class="card animated bounceInUp">
                         <div class="card-comment">
-                            <vue-markdown>评论区</vue-markdown>
+                            <quill-editor :content="content"
+                                          :options="editorOption"
+                                          @change="onEditorChange($event)">
+                            </quill-editor>
                         </div>
                     </div>
                 </div>
@@ -83,32 +85,24 @@
 </template>
 
 <script>
-    import VueMarkdown from 'vue-markdown'
+    import quill from 'quill'
+    // import yourQuillModule from '../yourModulePath/yourQuillModule.js'
+    // Quill.register('modules/yourQuillModule', yourQuillModule)
 
     export default {
-        components: {
-            VueMarkdown
-        },
         data() {
             return {
-                width: 1088,
-                ratio: 3,
-                isMobile: false,
-                content: '# 图文区'
+                content: '<h2>I am Example</h2>',
+                editorOption: {
+                    // some quill options
+                }
             }
         },
         methods: {
-            handleCardPanel() {
-                let rect = document.body.clientWidth;
-                this.isMobile = rect - this.ratio < this.width;
+            onEditorChange({quill, html}) {
+                this.content = html;
+                console.log(quill.getText())
             }
-        },
-        mounted() {
-            this.handleCardPanel();
-            const handler = () => {
-                this.handleCardPanel()
-            };
-            window.addEventListener('resize', handler);
         }
     }
 </script>
