@@ -41,7 +41,7 @@
                         <div class="card-top">
                             <div class="card-img img1"></div>
                         </div>
-                        <div class="card-area">
+                        <div class="card-area" v-html="content">
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                 <div class="column is-full-tablet is-8-desktop">
                     <div class="card animated bounceInUp">
                         <div class="card-comment">
-                            <quill-editor :content="content"
+                            <quill-editor :content="''"
                                           :options="editorOption"
                                           @change="onEditorChange($event)">
                             </quill-editor>
@@ -92,7 +92,103 @@
     export default {
         data() {
             return {
-                content: '<h2>I am Example</h2>',
+                content: '<h1 class="ql-align-center"><span class="ql-font-serif"\n' +
+                '                                                              style="color: rgb(255, 255, 255); background-color: rgb(240, 102, 102);"> I am Example 1! </span>\n' +
+                '                            </h1>\n' +
+                '                            <p><br></p>\n' +
+                '                            <p><span class="ql-font-serif">W Can a man still be brave if he\'s afraid? That is the only time a man can be brave. </span>\n' +
+                '                            </p>\n' +
+                '                            <p><br></p>\n' +
+                '                            <p><strong class="ql-size-large ql-font-serif">Courage and folly is </strong><strong\n' +
+                '                                    class="ql-size-large ql-font-serif"\n' +
+                '                                    style="color: rgb(230, 0, 0);">always</strong><strong\n' +
+                '                                    class="ql-size-large ql-font-serif"> just a fine line.</strong></p>\n' +
+                '                            <p><br></p>\n' +
+                '                            <p><u class="ql-font-serif">There is only one God, and his name is Death. And there is only\n' +
+                '                                one thing we say to Death: "Not today."</u></p>\n' +
+                '                            <p><br></p>\n' +
+                '                            <p><em class="ql-font-serif">Fear cuts deeper than swords.</em></p>\n' +
+                '                            <p><br></p>\n' +
+                '                            <pre class="ql-syntax" spellcheck="false">\n' +
+                'import com.iishoni.usercenter.service.AdminService;\n' +
+                'import com.iishoni.usercenterapi.api.Urls;\n' +
+                'import com.iishoni.usercenterapi.model.Admin;\n' +
+                'import com.iishoni.web.view.Page;\n' +
+                'import com.iishoni.web.view.ResponseVo;\n' +
+                'import io.swagger.annotations.Api;\n' +
+                'import io.swagger.annotations.ApiOperation;\n' +
+                'import org.springframework.web.bind.annotation.*;\n' +
+                '\n' +
+                'import javax.annotation.Resource;\n' +
+                '\n' +
+                '@RestController\n' +
+                '@RequestMapping(Urls.Admin.ROOT)\n' +
+                '@Api("用户接口")\n' +
+                'public class AdminController {\n' +
+                '\n' +
+                '    @Resource\n' +
+                '    private AdminService adminService;\n' +
+                '\n' +
+                '    @ApiOperation("分页获取用户列表")\n' +
+                '    @GetMapping(Urls.Admin.GET_ADMIN_LIST)\n' +
+                '    public ResponseVo getAdminList(\n' +
+                '            @RequestParam Long pageNum,\n' +
+                '            @RequestParam Long pageSize) {\n' +
+                '        Page result = adminService.getAdminsByPage(pageNum, pageSize);\n' +
+                '        return new ResponseVo<>(result);\n' +
+                '    }\n' +
+                '\n' +
+                '    @ApiOperation("根据id查询用户信息")\n' +
+                '    @GetMapping(Urls.Admin.GET_ADMIN_BY_ID)\n' +
+                '    public ResponseVo getAdminById(@PathVariable Long adminId) {\n' +
+                '        Admin result = adminService.getAdminById(adminId);\n' +
+                '        return new ResponseVo<>(result);\n' +
+                '    }\n' +
+                '\n' +
+                '    @ApiOperation("根据用户名密码查询用户信息")\n' +
+                '    @GetMapping(Urls.Admin.GET_ADMIN_BY_PROFILE)\n' +
+                '    public ResponseVo getAdminByProfile(@RequestParam String uname, @RequestParam String pwd) {\n' +
+                '        Admin result = adminService.getAdminByProfile(uname, pwd);\n' +
+                '        return new ResponseVo<>(result);\n' +
+                '    }\n' +
+                '\n' +
+                '    @ApiOperation("保存用户")\n' +
+                '    @PostMapping(Urls.Admin.SAVE_ADMIN)\n' +
+                '    public ResponseVo saveAdmin(@RequestBody Admin admin) {\n' +
+                '        adminService.saveAdmin(admin);\n' +
+                '        return new ResponseVo();\n' +
+                '    }\n' +
+                '\n' +
+                '    @ApiOperation("更新用户")\n' +
+                '    @PutMapping(Urls.Admin.UPDATE_ADMIN)\n' +
+                '    public ResponseVo updateAdmin(@PathVariable Long adminId, @RequestBody Admin admin) {\n' +
+                '        admin.setId(adminId);\n' +
+                '        adminService.updateAdmin(admin);\n' +
+                '        return new ResponseVo();\n' +
+                '    }\n' +
+                '\n' +
+                '    @ApiOperation("删除用户")\n' +
+                '    @DeleteMapping(Urls.Admin.DELETE_ADMIN)\n' +
+                '    public ResponseVo deleteAdmin(@PathVariable Long adminId) {\n' +
+                '        adminService.deleteAdmin(adminId);\n' +
+                '        return new ResponseVo();\n' +
+                '    }\n' +
+                '}\n' +
+                '                            </pre>\n' +
+                '                            <p><br></p>\n' +
+                '                            <p><span class="ql-font-serif">Every flight begins with a fall.</span></p>\n' +
+                '                            <p><br></p>\n' +
+                '                            <p><a href="https://surmon.me/" target="_blank" class="ql-size-small ql-font-serif"\n' +
+                '                                  style="color: rgb(230, 0, 0);"><u>A ruler who hides behind paid executioners soon\n' +
+                '                                forgets what death is. </u></a></p>\n' +
+                '                            <p><br><br></p>\n' +
+                '                            <p><span class="ql-font-serif">Hear my words, and bear witness to my vow. Night gathers, and now my watch begins. It shall not end until my death. I shall take no wife, hold no lands, father no children. I shall wear no crowns and win no glory. I shall live and die at my post. I am the sword in the darkness. I am the watcher on the walls. I am the fire that burns against the cold, the light that brings the dawn, the horn that wakes the sleepers, the shield that guards the realms of men. I pledge my life and honor to the Night’s Watch, for this night and all the nights to come.</span>\n' +
+                '                            </p>\n' +
+                '                            <p><br></p>\n' +
+                '                            <p><span class="ql-font-serif">We are born to suffer, to suffer can make us strong.</span>\n' +
+                '                            </p>\n' +
+                '                            <p><br></p>\n' +
+                '                            <p><span class="ql-font-serif">The things we love destroy us every time.</span></p>',
                 editorOption: {
                     // some quill options
                 }
@@ -183,7 +279,6 @@
 
         .card-area {
             position: relative;
-            height: 100rem;
             padding: 30px;
         }
 
@@ -196,7 +291,6 @@
         }
 
         .card-comment {
-            height: 30rem;
             padding: 30px;
         }
     }
