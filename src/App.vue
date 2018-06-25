@@ -9,7 +9,7 @@
         mounted() {
             L2Dwidget.init({
                 model: {
-                    jsonPath: "https://unpkg.com/live2d-widget-model-koharu@latest/assets/koharu.model.json",
+                    jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
                     scale: 1,
                     hHeadPos: .5,
                     vHeadPos: .618,
