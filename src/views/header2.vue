@@ -85,7 +85,7 @@
                     <div class="columes">
                         <div class="column is-8 is-offset-2 has-text-centered">
                             <h1 class="title big-title">
-                                论萝莉的重要性
+                                标题位
                             </h1>
                             <div class="title-avatar has-text-centered">
                                 <img src="../assets/avatar.jpg" alt="Logo">
