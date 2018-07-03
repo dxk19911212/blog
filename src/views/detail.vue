@@ -72,10 +72,7 @@
                 <div class="column is-full-tablet is-8-desktop">
                     <div class="card animated bounceInUp">
                         <div class="card-comment">
-                            <quill-editor :content="''"
-                                          :options="editorOption"
-                                          @change="onEditorChange($event)">
-                            </quill-editor>
+                            <mavon-editor v-model="value"/>
                         </div>
                     </div>
                 </div>
@@ -85,13 +82,10 @@
 </template>
 
 <script>
-    import quill from 'quill'
-    // import yourQuillModule from '../yourModulePath/yourQuillModule.js'
-    // Quill.register('modules/yourQuillModule', yourQuillModule)
-
     export default {
         data() {
             return {
+                value: '',
                 content: '<h1 class="ql-align-center"><span class="ql-font-serif"\n' +
                 '                                                              style="color: rgb(255, 255, 255); background-color: rgb(240, 102, 102);"> I am Example 1! </span>\n' +
                 '                            </h1>\n' +
@@ -189,16 +183,11 @@
                 '                            </p>\n' +
                 '                            <p><br></p>\n' +
                 '                            <p><span class="ql-font-serif">The things we love destroy us every time.</span></p>',
-                editorOption: {
-                    // some quill options
-                }
+
             }
         },
         methods: {
-            onEditorChange({quill, html}) {
-                this.content = html;
-                console.log(quill.getText())
-            }
+
         }
     }
 </script>
