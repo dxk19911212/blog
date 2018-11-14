@@ -6,29 +6,57 @@
 
 <script>
     export default {
-        mounted() {
-            L2Dwidget.init({
-                model: {
-                    jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
-                    scale: 1,
-                    hHeadPos: .5,
-                    vHeadPos: .618,
-                    myDefine: []
-                },
-                display: {superSample: 2, width: 150, height: 300, position: "left", hOffset: -20, vOffset: -100},
-                mobile: {show: !0, scale: 7, motion: !0},
-                name: {canvas: "live2dcanvas", div: "live2d-widget"},
-                react: {
-                    opacityDefault: 1, opacityOnHover: .2, myFunc: function (t) {
-                        console.log("(undefined) ┑(￣Д ￣)┍")
-                    }
-                },
-                dev: {
-                    log: !1, border: !1, mouseLog: !1, mouseFunc: function (t, n, e, r) {
-                        console.log("MouseFunc: " + t + "," + n + "; " + e + ", " + r)
+        data() {
+            return {
+                width: 768,
+                ratio: 3
+            }
+        },
+        methods: {
+            monitor() {
+                if (!document.hidden) {
+                    let rect = document.body.clientWidth;
+                    let isMobile = rect - this.ratio < this.width;
+                    let canvas = document.getElementById("live2dcanvas");
+                    if (isMobile && canvas != null) {
+                        canvas.style.display = "none";
+                    } else if (!isMobile && canvas != null) {
+                        canvas.style.display = "";
                     }
                 }
-            });
+            },
+            showKoharu() {
+                L2Dwidget.init({
+                    model: {
+                        jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
+                        scale: 1,
+                        hHeadPos: .5,
+                        vHeadPos: .618,
+                        myDefine: []
+                    },
+                    display: {superSample: 2.5, width: 100, height: 150, position: "left", hOffset: -30, vOffset: -30},
+                    // mobile: {show: !0, scale: 7, motion: !0},
+                    name: {canvas: "live2dcanvas", div: "live2d-widget"},
+                    react: {
+                        opacityDefault: 1, opacityOnHover: .2, myFunc: function (t) {
+                            console.log("(undefined) ┑(￣Д ￣)┍")
+                        }
+                    },
+                    dev: {
+                        log: !1, border: !1, mouseLog: !1, mouseFunc: function (t, n, e, r) {
+                            console.log("MouseFunc: " + t + "," + n + "; " + e + ", " + r)
+                        }
+                    }
+                });
+            }
+        },
+        mounted() {
+            this.showKoharu();
+            this.monitor();
+            const handler = () => {
+                this.monitor()
+            };
+            window.addEventListener('resize', handler);
         }
     }
 </script>
