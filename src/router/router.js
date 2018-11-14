@@ -2,22 +2,25 @@ import Header from '../views/header';
 import Header2 from '../views/header2';
 
 // 懒加载
-const Index = () => import('../views/index');
+const Article = () => import('../views/article');
 const Detail = () => import('../views/detail');
 
 export const constantRouter = [
     {
         path: '/',
-        redirect: '/home',
+        redirect: '/article/1'
+    },
+    {
+        path: '/article',
         component: Header,
         children: [
             {
-                path: '',
+                path: '/article/:page',
                 name: '主页',
                 meta: {
-                    title: '一绪に！！(*^▽^*)'
+                    title: 'iishoni - article'
                 },
-                component: Index
+                component: Article
             }
         ]
     },
@@ -34,10 +37,6 @@ export const constantRouter = [
                 component: Detail
             }
         ]
-    },
-    {
-        path: '/test',
-        component: Header
     }
 ];
 

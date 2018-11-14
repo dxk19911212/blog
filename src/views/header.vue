@@ -6,7 +6,7 @@
                     <div class="container">
                         <div class="navbar-brand">
                             <a class="navbar-item">
-                                <img class="logo" src="../assets/avatar.jpg">
+                                <img class="logo" src="https://pic.iishoni.com/avatar.jpg">
                             </a>
                             <span id="navbar-burger-clone" class="navbar-burger burger clone"
                                   data-target="navbarMenuClone" @click="showCloneBurger">
@@ -216,7 +216,7 @@
     }
 
     .is-animated {
-        background: #00d1b2 url("../assets/pattern.svg") repeat 0 0;
+        background: #00d1b2 url("https://pic.iishoni.com/bg.svg") repeat 0 0;
         animation: 4s linear 0s normal none infinite animate;
         box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
     }

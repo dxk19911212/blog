@@ -13,7 +13,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    window.document.title = to.meta.title || 'Vue Admin';
+    window.document.title = to.meta.title || '一绪に！！(*^▽^*)';
     next();
 });
 

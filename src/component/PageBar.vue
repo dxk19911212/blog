@@ -1,16 +1,17 @@
 <template>
     <div class="page-container">
         <div class="columns is-multiline">
-            <div class="column"></div>
-            <div class="column is-6-tablet is-4-desktop">
-                <pagination class="is-rounded is-centered is-medium"
-                            :urlPrefix="'/'"
-                            :currentPage="5"
-                            :lastPage="30"
+            <div class="column is-3"></div>
+            <div class="column">
+                <pagination class="is-rounded is-centered is-large"
+                            :url-builder="page => ({ params: { page } })"
+                            :current-page="currentPage"
+                            :last-page="lastPage"
+                            :display-page="6"
                             :prev="'«'"
                             :next="'»'"/>
             </div>
-            <div class="column"></div>
+            <div class="column is-3"></div>
         </div>
     </div>
 </template>
@@ -21,6 +22,13 @@
     export default {
         components: {
             Pagination
+        },
+        props: {
+            currentPage: {
+                type: Number,
+                default: 1
+            },
+            lastPage: Number
         }
     }
 </script>

@@ -14,26 +14,6 @@
                                 <i class="fas fa-eye"></i>
                             </span>
                         </div>
-                        <div class="badge-button badge animated bounceInLeft button-3" data-badge="149">
-                            <span class="icon is-large">
-                                <i class="fas fa-stream"></i>
-                            </span>
-                        </div>
-                        <div class="badge-button badge animated bounceInLeft button-4">
-                            <span class="icon is-large">
-                                <i class="fas fa-weibo"></i>
-                            </span>
-                        </div>
-                        <div class="badge-button badge animated bounceInLeft button-5">
-                            <span class="icon is-large">
-                                <i class="fas fa-qq"></i>
-                            </span>
-                        </div>
-                        <div class="badge-button badge animated bounceInLeft button-6">
-                            <span class="icon is-large">
-                                <i class="fas fa-weixin"></i>
-                            </span>
-                        </div>
                     </div>
                 </div>
                 <div class="column is-full-tablet is-8-desktop">
@@ -50,7 +30,7 @@
                         <div class="column">
                             <div class="card pic-1 animated bounceInRight">
                                 <div class="card-box">
-                                    <img src="../assets/pic1.png"/>
+                                    <img src="https://pic.iishoni.com/p9.png"/>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +39,7 @@
                         <div class="column">
                             <div class="card pic-2 animated bounceInRight">
                                 <div class="card-box">
-                                    <img src="../assets/pic2.jpg"/>
+                                    <img src="https://pic.iishoni.com/p10.jpg"/>
                                 </div>
                             </div>
                         </div>
@@ -194,14 +174,14 @@
 
 <style lang="scss" scoped>
     @import "~bulma/sass/utilities/_all";
-    @import "~bulma-badge/dist/bulma-badge";
+    @import "~bulma-badge/dist/css/bulma-badge";
 
     section {
         padding: 3rem 0
     }
 
     .img1 {
-        background: url("../assets/demo/easyship.jpg") no-repeat center center;
+        background: url("https://pic.iishoni.com/p2.jpg") no-repeat center center;
     }
 
     .card-left {

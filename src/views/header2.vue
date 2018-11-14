@@ -7,7 +7,7 @@
                     <div class="container">
                         <div class="navbar-brand">
                             <a class="navbar-item">
-                                <img class="logo" src="../assets/avatar.jpg">
+                                <img class="logo" src="https://pic.iishoni.com/avatar.jpg">
                             </a>
                             <span id="navbar-burger-clone" class="navbar-burger burger clone"
                                   data-target="navbarMenuClone" @click="showCloneBurger">
@@ -88,7 +88,7 @@
                                 标题位
                             </h1>
                             <div class="title-avatar has-text-centered">
-                                <img src="../assets/avatar.jpg" alt="Logo">
+                                <img src="https://pic.iishoni.com/avatar.jpg" alt="Logo">
                                 <div class="title-meta">
                                     <div class="author-name">
                                         Posted by
