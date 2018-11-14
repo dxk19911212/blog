@@ -35,7 +35,7 @@
                         myDefine: []
                     },
                     display: {superSample: 2.5, width: 100, height: 150, position: "left", hOffset: -30, vOffset: -30},
-                    // mobile: {show: !0, scale: 7, motion: !0},
+                    mobile: {show: !0, scale: 7, motion: !0},
                     name: {canvas: "live2dcanvas", div: "live2d-widget"},
                     react: {
                         opacityDefault: 1, opacityOnHover: .2, myFunc: function (t) {
@@ -56,6 +56,7 @@
             const handler = () => {
                 this.monitor()
             };
+            window.addEventListener('scroll', handler);
             window.addEventListener('resize', handler);
         }
     }
