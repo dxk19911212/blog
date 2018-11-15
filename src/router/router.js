@@ -1,5 +1,4 @@
-import Header from '../views/header';
-import Header2 from '../views/header2';
+import Main from '../views/main';
 
 // 懒加载
 const Article = () => import('../views/article');
@@ -12,7 +11,7 @@ export const constantRouter = [
     },
     {
         path: '/article',
-        component: Header,
+        component: Main,
         children: [
             {
                 path: '/article/:page',
@@ -26,7 +25,7 @@ export const constantRouter = [
     },
     {
         path: '/detail',
-        component: Header2,
+        component: Main,
         children: [
             {
                 path: '',

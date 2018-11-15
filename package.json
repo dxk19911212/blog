@@ -24,6 +24,7 @@
     "bulma": "^0.7.2",
     "bulma-badge": "^2.0.0",
     "current-device": "^0.7.8",
+    "highlight.js": "^9.13.1",
     "markdown-it": "^8.4.2",
     "mavon-editor": "^2.6.17",
     "node-sass": "^4.10.0",

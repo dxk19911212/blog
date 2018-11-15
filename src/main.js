@@ -4,6 +4,7 @@ import router from './router'
 import * as filters from './filters'
 import './component'
 
+import 'highlight.js/styles/googlecode.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import animate from 'animate.css'
 Vue.use(animate);
