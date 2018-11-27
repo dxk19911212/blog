@@ -1,9 +1,9 @@
 <template>
     <div class="columes">
         <div class="column is-8 is-offset-2 has-text-centered">
-            <h1 class="title big-title animated bounceIn">
-                String的重用
-            </h1>
+            <!--<h1 class="title big-title animated bounceIn">-->
+                <!--String的重用-->
+            <!--</h1>-->
             <div class="title-avatar has-text-centered">
                 <img class="animated rubberBand" src="https://pic.iishoni.com/avatar.jpg" alt="Logo">
                 <div class="title-meta animated fadeIn">
@@ -17,9 +17,9 @@
                     </div>
                 </div>
             </div>
-            <div class="title-btn has-text-centered animated fadeIn">
-                <router-link :to="'/'" class="primary-btn ">Back to Blog</router-link>
-            </div>
+            <!--<div class="title-btn has-text-centered animated fadeIn">-->
+                <!--<router-link :to="'/'" class="primary-btn ">Back to Blog</router-link>-->
+            <!--</div>-->
         </div>
     </div>
 </template>
@@ -40,6 +40,8 @@
         }
 
         .title-meta {
+            margin-bottom: 50px;
+
             .author-name span {
                 font-size: 1.2rem;
                 font-weight: 600;

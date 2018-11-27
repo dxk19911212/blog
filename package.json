@@ -26,7 +26,7 @@
     "current-device": "^0.7.8",
     "highlight.js": "^9.13.1",
     "markdown-it": "^8.4.2",
-    "mavon-editor": "^2.6.17",
+    "markdown-it-container": "^2.0.0",
     "node-sass": "^4.10.0",
     "parcel": "^1.10.3",
     "vue": "^2.5.17",

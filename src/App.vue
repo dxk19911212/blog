@@ -5,6 +5,8 @@
 </template>
 
 <script>
+    import {mapActions} from 'vuex'
+
     export default {
         data() {
             return {
@@ -13,10 +15,15 @@
             }
         },
         methods: {
+            ...mapActions([
+                'ToggleDevice'
+            ]),
             monitor() {
                 if (!document.hidden) {
                     let rect = document.body.clientWidth;
                     let isMobile = rect - this.ratio < this.width;
+                    this.ToggleDevice(isMobile ? 'mobile' : 'other');
+
                     let canvas = document.getElementById("live2dcanvas");
                     if (isMobile && canvas != null) {
                         canvas.style.display = "none";

@@ -1,5 +1,5 @@
 <template>
-    <section class="hero is-primary is-animated" :class="path !== '/detail' ? 'is-medium' : 'is-small'">
+    <section class="hero is-primary is-small is-animated">
         <div id="hero-head-clone" :class="scroll === 'up' ? 'is-active' : ''" class="hero-head fixed">
             <nav class="navbar">
                 <div class="container">
@@ -77,13 +77,13 @@
                                 关于我们
                             </a>
                             <span class="navbar-item">
-                                    <a class="button is-info is-inverted">
-                                        <span class="icon">
-                                            <i class="fas fa-user"></i>
-                                        </span>
-                                        <span>登录</span>
-                                    </a>
-                                </span>
+                                <a class="button is-info is-inverted">
+                                    <span class="icon">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                    <span>登录</span>
+                                </a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -99,19 +99,19 @@
             </div>
         </div>
 
-        <div class="hero-foot animated fadeIn" v-if="path !== '/detail'">
-            <nav class="tabs is-boxed is-fullwidth">
-                <div class="container">
-                    <ul>
-                        <li><a>文章</a></li>
-                        <li><a>视频</a></li>
-                        <li><a>图片</a></li>
-                        <li><a>资源下载</a></li>
-                        <li><a>归档</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+        <!--<div class="hero-foot animated fadeIn" v-if="path !== '/detail'">-->
+            <!--<nav class="tabs is-boxed is-fullwidth">-->
+                <!--<div class="container">-->
+                    <!--<ul>-->
+                        <!--<li><a>文章</a></li>-->
+                        <!--<li><a>视频</a></li>-->
+                        <!--<li><a>图片</a></li>-->
+                        <!--<li><a>资源下载</a></li>-->
+                        <!--<li><a>归档</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</nav>-->
+        <!--</div>-->
     </section>
 </template>
 
