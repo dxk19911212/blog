@@ -48,7 +48,7 @@
                         render: function (tokens, idx) {
                             let m = tokens[idx].info.trim().match(/^img\s+(.*)$/);
                             if (tokens[idx].nesting === 1) {
-                                return '<p><img style="border-radius: 10px" src="' + md.utils.escapeHtml(m[1]) + '">';
+                                return '<p><img style="border-radius: 5px" src="' + md.utils.escapeHtml(m[1]) + '">';
                             } else {
                                 return '</img></p>';
                             }

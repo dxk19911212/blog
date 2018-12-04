@@ -173,7 +173,7 @@
 
     .card {
         margin: -90px 10px 0 10px;
-        border-radius: 20px;
+        border-radius: 10px;
         background-color: #fff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .05);
     }

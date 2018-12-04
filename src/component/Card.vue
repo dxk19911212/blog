@@ -63,7 +63,7 @@
 
     .card {
         margin: 20px;
-        border-radius: 20px;
+        border-radius: 10px;
         background-color: #fff;
         transition: all .2s ease-out;
         box-shadow: 0 2px 43px -4px rgba(0, 0, 0, .19);
@@ -86,16 +86,16 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                border-top-right-radius: 20px;
-                border-top-left-radius: 20px;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
             }
         }
 
         .card-bottom {
             background-color: #fff;
             position: relative;
-            border-bottom-right-radius: 20px;
-            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
 
             .card-upper {
                 padding: 19px 20px 13px;
