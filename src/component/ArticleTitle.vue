@@ -31,6 +31,8 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../assets/customize';
+
     .title-avatar {
         img {
             height: 70px;
@@ -40,7 +42,7 @@
         }
 
         .title-meta {
-            margin-bottom: 50px;
+            margin-bottom: 30px;
 
             .author-name span {
                 font-size: 1.2rem;
@@ -55,21 +57,23 @@
         }
     }
 
+    /*
     .title-btn {
-        padding-top: 30px;
+        padding-bottom: 30px;
 
         .primary-btn {
             border-radius: 500px;
             padding: 15px 70px;
             outline: none;
-            border-color: #00c5a9;
-            background-color: #00c5a9;
+            border-color: $pink;
+            background-color: $pink;
             color: #fff;
             transition: all 0.5s;
 
             &:hover {
-                box-shadow: 0 14px 26px -12px rgba(0, 197, 169, 0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0, 197, 169, 0.2);
+                box-shadow: 0 14px 26px -12px rgba(216, 105, 124, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(209, 105, 116, 0.2);
             }
         }
     }
+    */
 </style>

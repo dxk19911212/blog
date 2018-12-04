@@ -20,7 +20,7 @@
                 handler(val) {
                     this.$nextTick(_ => {
                         this.$refs['vue-markdown-container'].innerHTML = this.md.render(val)
-                    })
+                    });
                 }
             }
         },
@@ -60,6 +60,6 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

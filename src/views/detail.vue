@@ -4,7 +4,7 @@
             <div class="columns is-multiline">
                 <div class="column is-hidden-touch is-1-desktop">
                     <div class="card-left">
-                        <div class="badge-button animated bounceInLeft badge button-1" data-badge="1,530"
+                        <div class="badge-button badge animated bounceInLeft button-1" data-badge="1,530"
                              :style="this.model === 'read' ? '' : 'display: none'">
                             <span class="icon is-large">
                                 <i class="fas fa-heart"></i>
@@ -42,9 +42,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="column is-full-tablet is-9-desktop">
+                <div class="column is-full-tablet is-11-desktop">
                     <div class="card content" :style="[handleCardPadding]" v-if="this.model === 'read'">
-                        <vue-markdown :content="content"/>
+                        <vue-markdown :content="article.info.content"/>
                     </div>
                     <div class="card content" :style="[handleCardPadding]" v-if="this.model === 'preview'">
                         <vue-markdown :content="draft"/>
@@ -54,19 +54,19 @@
                                   v-model="draft">{{ draft }}</textarea>
                     </div>
                 </div>
-                <div class="column is-hidden-touch is-2-desktop">
-                    <div class="extend content">
+                <!--<div class="column is-hidden-touch is-2-desktop">-->
+                    <!--<div class="extend content">-->
 
-                    </div>
+                    <!--</div>-->
 
-                    <div class="extend content">
+                    <!--<div class="extend content">-->
 
-                    </div>
+                    <!--</div>-->
 
-                    <div class="extend content">
+                    <!--<div class="extend content">-->
 
-                    </div>
-                </div>
+                    <!--</div>-->
+                <!--</div>-->
             </div>
         </div>
     </section>
@@ -74,19 +74,18 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import * as articleApi from '../api/articleApi'
 
     export default {
         data() {
             return {
-                content: '',
                 draft: '',
                 model: 'read'
             }
         },
         computed: {
             ...mapGetters([
-                'device'
+                'device',
+                'article'
             ]),
             handleCardPadding() {
                 return this.device.isMobile ? {'padding': '15px', 'padding-top': '30px'} : {'padding': '50px'};
@@ -94,33 +93,41 @@
         },
         methods: {
             load() {
-                articleApi.getArticleInfo(1).then(response => {
-                    this.content = response.data.content;
-                });
+                this.$store.dispatch('GetArticleInfo', this.article.info.id).then();
             },
             edit() {
                 this.model = 'write';
-                this.draft = this.content;
+                this.draft = this.article.info.content;
             },
             preview() {
                 this.model === 'preview' ? this.model = 'write' : this.model = 'preview';
             },
             cancle() {
                 this.model = 'read';
+                this.draft = ''
             },
             save() {
-                this.model = 'read';
-                this.load();
+                const data = {
+                    id: this.article.info.id,
+                    content: this.draft
+                };
+                this.$store.dispatch('UpdateArticle', data).then(() => {
+                    this.model = 'read';
+                    this.load();
+                    this.draft = ''
+                });
             }
         },
-        mounted() {
-            this.load();
+        watch: {
+            $route() {
+                this.id = this.$route.params.id;
+            }
         }
     }
 </script>
 
 <style lang="scss" scoped>
-    @import "~bulma/sass/utilities/_all";
+    @import '../assets/customize';
     @import "~bulma-badge/dist/css/bulma-badge";
 
     section {
@@ -144,9 +151,9 @@
             transition: all .3s;
 
             &:hover {
-                border-color: #00d1b2;
-                background: #00d1b2;
-                box-shadow: 0 14px 26px -12px rgba(0, 209, 178, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 209, 178, 0.2);
+                border-color: $pink;
+                background: $pink;
+                box-shadow: 0 14px 26px -12px rgba(216, 105, 124, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(209, 105, 116, 0.2);
                 color: #fff;
             }
 

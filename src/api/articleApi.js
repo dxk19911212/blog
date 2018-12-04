@@ -21,3 +21,19 @@ export function getArticleInfo(id) {
         method: 'get'
     })
 }
+
+export function updateArticle(data) {
+    return request({
+        url: '/article/' + data.id,
+        method: 'put',
+        data: data
+    })
+}
+
+export function saveArticle(data) {
+    return request({
+        url: '/article',
+        method: 'post',
+        data: data
+    })
+}

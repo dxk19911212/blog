@@ -5,7 +5,7 @@
             <div class="column">
                 <pagination class="is-rounded is-centered is-large"
                             :url-builder="page => ({ params: { page } })"
-                            :current-page="currentPage"
+                            :current-page="parseInt(currentPage)"
                             :last-page="lastPage"
                             :display-page="6"
                             :prev="'«'"
@@ -54,12 +54,13 @@
             background: none;
             border: 2px solid rgba(67, 91, 113, .5);
             margin: 4px;
+            transition: all .3s;
 
             &:hover {
                 z-index: 2;
                 color: #fff;
-                border-color: #00d1b2;
-                background-color: #00d1b2;
+                border-color: #FA7C91;
+                background-color: #FA7C91;
             }
         }
 
@@ -78,8 +79,8 @@
 
             .pagination-link.is-current {
                 color: #fff;
-                border-color: #00d1b2;
-                background-color: #00d1b2;
+                border-color: #FA7C91;
+                background-color: #FA7C91;
             }
         }
     }

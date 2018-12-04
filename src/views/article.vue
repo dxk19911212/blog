@@ -3,52 +3,56 @@
         <div class="container">
             <div class="column">
                 <ul class="category-list animated bounceInLeft">
-                    <li v-for="item in categoryData">
+                    <li v-for="item in tags">
                         <a>{{ item.mark }}</a>
                         <span class="b-badge gelatine">{{ item.total | formatNum }}</span>
                     </li>
                 </ul>
             </div>
             <div class="columns is-multiline animated fadeIn">
-                <card v-for="item in cardData"
+                <card v-for="item in article.list"
+                      :id="item.id"
                       :img="item.img"
                       :title="item.title"
                       :summary="item.summary"
                       :tags="item.tags"
                       :views="item.views"
-                      :loves="item.loves"/>
+                      :loves="item.loves"
+                      @load="loadArticleInfo(item.id)"/>
             </div>
         </div>
-        <page-bar :current-page="pageNum" :last-page="total | getLastPage"/>
+        <page-bar :current-page="pageNum" :last-page="article.count | getLastPage"/>
     </section>
 </template>
 
 <script>
-    import * as articleApi from '../api/articleApi'
+    import {mapGetters} from 'vuex'
 
     export default {
         data() {
             return {
-                categoryData: [],
-                cardData: [],
-                pageNum: 1,
-                total: 0
+                pageNum: 1
             }
+        },
+        computed: {
+            ...mapGetters([
+                'tags',
+                'article'
+            ])
         },
         methods: {
             loadTag() {
-                articleApi.getTagList().then(response => {
-                    this.categoryData = response.data;
-                })
+                this.$store.dispatch('GetTagList').then();
             },
             loadArticle() {
                 const params = {
                     pageNum: this.pageNum
                 };
-                articleApi.getArticleList(params).then(response => {
-                    this.cardData = response.data.list;
-                    this.total = response.data.count;
-                });
+                this.$store.dispatch('GetArticleList', params).then();
+            },
+            loadArticleInfo(id) {
+                this.$store.dispatch('GetArticleInfo', id).then();
+                this.$router.push('/article/' + id);
             }
         },
         mounted() {
@@ -58,13 +62,14 @@
         watch: {
             $route() {
                 this.pageNum = this.$route.params.page;
-                this.loadArticle();
+                // this.loadArticle();
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
+    @import '../assets/customize';
 
     section {
         padding: 3rem 0
@@ -127,7 +132,7 @@
                 justify-content: center;
                 align-items: center;
                 display: none;
-                background: #00c5a9;
+                background: #EA4C89;
                 border-radius: 200px;
             }
 
@@ -139,9 +144,9 @@
                 transition: all .3s;
 
                 &:hover {
-                    border-color: #00d1b2;
-                    background: #00d1b2;
-                    box-shadow: 0 14px 26px -12px rgba(0, 209, 178, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 209, 178, 0.2);
+                    border-color: $pink;
+                    background: $pink;
+                    box-shadow: 0 14px 26px -12px rgba(216, 105, 124, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(209, 105, 116, 0.2);
                     color: #fff;
 
                     + .b-badge {

@@ -1,5 +1,5 @@
 <template>
-    <section class="hero is-primary is-small is-animated">
+    <section class="hero is-primary is-small background">
         <div id="hero-head-clone" :class="scroll === 'up' ? 'is-active' : ''" class="hero-head fixed">
             <nav class="navbar">
                 <div class="container">
@@ -17,22 +17,22 @@
                     <div id="navbar-menu-clone" class="navbar-menu">
                         <div class="navbar-end">
                             <a class="navbar-item">
-                                主页
+                                <router-link :to="'/'">主页</router-link>
                             </a>
                             <a class="navbar-item">
-                                开源项目
+                                <router-link :to="'/'">标签</router-link>
                             </a>
                             <a class="navbar-item">
-                                标签
+                                <router-link :to="'/'">归档</router-link>
                             </a>
                             <a class="navbar-item">
-                                后台
+                                <router-link :to="'/'">后台</router-link>
                             </a>
                             <a class="navbar-item">
-                                关于我们
+                                <router-link :to="'/'">关于我</router-link>
                             </a>
                             <span class="navbar-item">
-                                    <a class="button is-info is-inverted">
+                                    <a class="button is-primary is-inverted">
                                         <span class="icon">
                                             <i class="fas fa-user"></i>
                                         </span>
@@ -62,22 +62,22 @@
                     <div id="navbarMenu" class="navbar-menu">
                         <div class="navbar-end">
                             <a class="navbar-item">
-                                主页
+                                <router-link :to="'/'">主页</router-link>
                             </a>
                             <a class="navbar-item">
-                                开源项目
+                                <router-link :to="'/'">标签</router-link>
                             </a>
                             <a class="navbar-item">
-                                标签
+                                <router-link :to="'/'">归档</router-link>
                             </a>
                             <a class="navbar-item">
-                                后台
+                                <router-link :to="'/'">后台</router-link>
                             </a>
                             <a class="navbar-item">
-                                关于我们
+                                <router-link :to="'/'">关于我</router-link>
                             </a>
                             <span class="navbar-item">
-                                <a class="button is-info is-inverted">
+                                <a class="button is-primary is-inverted">
                                     <span class="icon">
                                         <i class="fas fa-user"></i>
                                     </span>
@@ -91,11 +91,11 @@
         </div>
 
         <div class="hero-body animated fadeIn">
-            <div class="container" v-if="path === '/detail'">
-                <article-title/>
+            <div class="container" v-if="this.name === 'list'">
+                <home-title/>
             </div>
             <div class="container" v-else>
-                <home-title/>
+                <article-title/>
             </div>
         </div>
 
@@ -119,7 +119,7 @@
     export default {
         data() {
             return {
-                path: '',
+                name: '',
                 YOffset: window.pageYOffset,
                 scroll: ''
             }
@@ -179,6 +179,7 @@
             }
         },
         mounted() {
+            this.name = this.$route.name;
             const handler = () => {
                 this.watchScroll();
                 this.hideBurger()
@@ -187,13 +188,15 @@
         },
         watch: {
             $route(to) {
-                this.path = to.path
+                this.name = to.name
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
+    @import '../assets/customize';
+
     .logo {
         max-height: 3rem !important;
         height: 4rem;
@@ -214,22 +217,15 @@
         }
     }
 
-    .is-animated {
-        background: #00d1b2 url("https://pic.iishoni.com/bg.svg") repeat 0 0;
-        animation: 4s linear 0s normal none infinite bg-animate;
+    .background {
+        /*background: #00d1b2 url("https://pic.iishoni.com/bg.svg") repeat 0 0;*/
+        /*animation: 4s linear 0s normal none infinite bg-animate;*/
+        background: linear-gradient(45deg, #5761b4 0%, #c142a0 100%);
         box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
     }
 
     .container {
         position: relative;
-    }
-
-    .big-title {
-        margin-bottom: 3rem;
-        font-size: 3rem;
-        font-weight: 600 !important;
-        line-height: 2;
-        word-break: break-word;
     }
 
     .fixed {
@@ -252,7 +248,7 @@
     }
 
     #navbar-burger-clone {
-        color: #00d1b2;
+        color: $primary;
     }
 
     #navbar-menu-clone {
@@ -260,7 +256,7 @@
 
         .navbar-item {
             text-align: center;
-            color: #00d1b2;
+            color: $primary;
             padding-top: 15px;
             padding-bottom: 15px;
 

@@ -7,31 +7,25 @@ const Detail = () => import('../views/detail');
 export const constantRouter = [
     {
         path: '/',
-        redirect: '/article/1'
+        redirect: '/article/p/1'
     },
     {
         path: '/article',
         component: Main,
         children: [
             {
-                path: '/article/:page',
-                name: '主页',
+                path: 'p/:page',
+                name: 'list',
                 meta: {
-                    title: 'iishoni - article'
+                    // title: 'iishoni - article'
                 },
                 component: Article
-            }
-        ]
-    },
-    {
-        path: '/detail',
-        component: Main,
-        children: [
+            },
             {
-                path: '',
-                name: 'iishoni - detail',
+                path: ':id',
+                name: 'detail',
                 meta: {
-                    title: 'iishoni - detail'
+                    // title: 'iishoni - detail'
                 },
                 component: Detail
             }

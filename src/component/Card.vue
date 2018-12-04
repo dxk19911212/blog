@@ -2,9 +2,7 @@
     <div class="column is-6-tablet is-4-desktop">
         <div class="card">
             <div class="card-top">
-                <div class="card-img"
-                     :style='backgroundStyles'
-                     @click="toDetail()"></div>
+                <div class="card-img" :style='backgroundStyles' @click="load"></div>
             </div>
             <div class="card-bottom">
                 <div class="card-upper">
@@ -37,6 +35,7 @@
     export default {
         name: "Card",
         props: {
+            id: Number,
             img: String,
             title: String,
             summary: String,
@@ -44,17 +43,17 @@
             views: Number,
             loves: Number
         },
-        methods: {
-            toDetail() {
-                this.$router.push('/detail');
-            }
-        },
         data() {
             return {
                 backgroundStyles: {
                     background: 'url("' + this.img + '") center center no-repeat',
                     backgroundSize: '100% 100%'
                 }
+            }
+        },
+        methods: {
+            load() {
+                this.$emit('load')
             }
         }
     }
