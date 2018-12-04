@@ -5,7 +5,9 @@ import store from './store'
 import * as filters from './filters'
 import './component'
 
-import '@fortawesome/fontawesome-free/css/all.min.css'
+import '@fortawesome/fontawesome-free/css/solid.min.css'
+import '@fortawesome/fontawesome-free/css/svg-with-js.min.css'
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css'
 import animate from 'animate.css'
 Vue.use(animate);
 
