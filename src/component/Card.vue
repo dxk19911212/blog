@@ -66,11 +66,11 @@
         border-radius: 10px;
         background-color: #fff;
         transition: all .2s ease-out;
-        box-shadow: 0 2px 43px -4px rgba(0, 0, 0, .19);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .05);
 
         &:hover {
             transform: translateY(2px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .05);
+            box-shadow: 0 2px 43px -4px rgba(0, 0, 0, .19);
         }
 
         .card-top {
