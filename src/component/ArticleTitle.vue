@@ -1,26 +1,24 @@
 <template>
-    <div class="columes">
-        <div class="column is-8 is-offset-2 has-text-centered">
-            <!--<h1 class="title big-title animated bounceIn">-->
-                <!--String的重用-->
-            <!--</h1>-->
-            <div class="title-avatar has-text-centered">
-                <img class="animated rubberBand" src="https://pic.iishoni.com/avatar.jpg" alt="Logo">
-                <div class="title-meta animated fadeIn">
-                    <div class="author-name">
-                        Posted by
-                        <span>Xiaokang</span>
-                    </div>
-                    <div class="timestamp">
-                        on
-                        <span>2018-06-22</span>
-                    </div>
+    <div class="column">
+        <!--<h1 class="title big-title animated bounceIn">-->
+            <!--String的重用-->
+        <!--</h1>-->
+        <div class="title-avatar has-text-centered">
+            <img class="animated rubberBand" src="https://pic.iishoni.com/avatar.jpg" alt="Logo">
+            <div class="title-meta animated fadeIn">
+                <div class="author-name">
+                    Posted by
+                    <span>Xiaokang</span>
+                </div>
+                <div class="timestamp">
+                    on
+                    <span>2018-06-22</span>
                 </div>
             </div>
-            <!--<div class="title-btn has-text-centered animated fadeIn">-->
-                <!--<router-link :to="'/'" class="primary-btn ">Back to Blog</router-link>-->
-            <!--</div>-->
         </div>
+        <!--<div class="title-btn has-text-centered animated fadeIn">-->
+            <!--<router-link :to="'/'" class="primary-btn ">Back to Blog</router-link>-->
+        <!--</div>-->
     </div>
 </template>
 
@@ -32,6 +30,14 @@
 
 <style lang="scss" scoped>
     @import '../assets/customize';
+
+    /*.big-title {*/
+        /*font-size: 60px;*/
+        /*font-weight: bold;*/
+        /*letter-spacing: -.02em;*/
+        /*line-height: 1;*/
+        /*margin-bottom: 30px;*/
+    /*}*/
 
     .title-avatar {
         img {

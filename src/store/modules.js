@@ -4,7 +4,7 @@ import * as articleApi from '../api/articleApi'
 const state = {
     device: {
         isMobile: false,
-        isTablet: false
+        isDesktop: false
     },
     tags: [],
     article: {
@@ -93,7 +93,7 @@ const actions = {
 const mutations = {
     [types.TOGGLE_DEVICE](state, device) {
         state.device.isMobile = device === 'mobile';
-        state.device.isTablet = device === 'tablet';
+        state.device.isDesktop = device === 'desktop';
     },
     [types.GET_TAG_LIST](state, data) {
         state.tags = data;

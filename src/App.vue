@@ -10,7 +10,8 @@
     export default {
         data() {
             return {
-                width: 768,
+                mobileWidth: 768,
+                desktopWidth: 1088,
                 ratio: 3
             }
         },
@@ -21,8 +22,9 @@
             monitor() {
                 if (!document.hidden) {
                     let rect = document.body.clientWidth;
-                    let isMobile = rect - this.ratio < this.width;
-                    this.ToggleDevice(isMobile ? 'mobile' : 'other');
+                    let isMobile = rect - this.ratio < this.mobileWidth;
+                    let isDesktop = rect - this.ratio < this.desktopWidth;
+                    this.ToggleDevice(isDesktop ? 'desktop' : isMobile ? 'mobile' : 'other');
 
                     // let canvas = document.getElementById("live2dcanvas");
                     // if (isMobile && canvas != null) {

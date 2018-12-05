@@ -1,5 +1,5 @@
 <template>
-    <div ref="vue-markdown-container"></div>
+    <div ref="vue-markdown-container" class="content"></div>
 </template>
 
 <script>

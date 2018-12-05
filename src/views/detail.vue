@@ -2,6 +2,7 @@
     <section>
         <div class="container">
             <div class="columns is-multiline">
+                <path-menu :style="device.isDesktop ? '' : 'display: none;'"></path-menu>
                 <div class="column is-hidden-touch is-1-desktop">
                     <div class="card-left">
                         <div class="badge-button badge animated bounceInLeft button-1" data-badge="1,530"
@@ -42,15 +43,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="column is-full-tablet is-11-desktop">
-                    <div class="card content" :style="[handleCardPadding]" v-if="this.model === 'read'">
+                <div class="column is-full-mobile is-11-desktop">
+                    <div class="card" :style="[handleCardPadding]" v-if="this.model === 'read'">
                         <vue-markdown :content="article.info.content"/>
                     </div>
-                    <div class="card content" :style="[handleCardPadding]" v-if="this.model === 'preview'">
+                    <div class="card" :style="[handleCardPadding]" v-if="this.model === 'preview'">
                         <vue-markdown :content="draft"/>
                     </div>
-                    <div class="card content" :style="[handleCardPadding]" v-if="this.model === 'write'">
-                        <textarea class="textarea" placeholder="写点东西吧..." rows="50"
+                    <div class="card" :style="[handleCardPadding]" v-if="this.model === 'write'">
+                        <textarea class="textarea content" placeholder="写点东西吧..." rows="50"
                                   v-model="draft">{{ draft }}</textarea>
                     </div>
                 </div>
