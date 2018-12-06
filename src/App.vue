@@ -22,9 +22,9 @@
             monitor() {
                 if (!document.hidden) {
                     let rect = document.body.clientWidth;
-                    let isMobile = rect - this.ratio < this.mobileWidth;
                     let isDesktop = rect - this.ratio < this.desktopWidth;
-                    this.ToggleDevice(isDesktop ? 'desktop' : isMobile ? 'mobile' : 'other');
+                    let isMobile = rect - this.ratio < this.mobileWidth;
+                    this.ToggleDevice({'isDesktop': isDesktop, 'isMobile': isMobile});
 
                     // let canvas = document.getElementById("live2dcanvas");
                     // if (isMobile && canvas != null) {

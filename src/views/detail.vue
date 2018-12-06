@@ -2,7 +2,7 @@
     <section>
         <div class="container">
             <div class="columns is-multiline">
-                <path-menu :style="device.isDesktop ? '' : 'display: none;'"></path-menu>
+                <path-menu :style="device.isDesktop ? '' : 'display: none;'" :menu-item="this.menus"></path-menu>
                 <div class="column is-hidden-touch is-1-desktop">
                     <div class="card-left">
                         <div class="badge-button badge animated bounceInLeft button-1" data-badge="1,530"
@@ -80,7 +80,25 @@
         data() {
             return {
                 draft: '',
-                model: 'read'
+                model: 'read',
+                menus: [
+                    {
+                        icon: 'fa-pen',
+                        event: this.edit
+                    },
+                    {
+                        icon: 'fa-exchange-alt',
+                        event: this.preview
+                    },
+                    {
+                        icon: 'fa-trash',
+                        event: this.cancle
+                    },
+                    {
+                        icon: 'fa-save',
+                        event: this.save
+                    }
+                ]
             }
         },
         computed: {
@@ -95,19 +113,20 @@
         methods: {
             load() {
                 this.$store.dispatch('GetArticleInfo', this.article.info.id).then();
+                this.draft = this.article.info.content;
             },
             edit() {
                 this.model = 'write';
                 this.draft = this.article.info.content;
             },
             preview() {
-                this.model === 'preview' ? this.model = 'write' : this.model = 'preview';
+                this.model = this.model === 'read' ? 'read' : this.model === 'write' ? 'preview' : 'write';
             },
             cancle() {
                 this.model = 'read';
-                this.draft = ''
             },
             save() {
+                if (this.model === 'read') return;
                 const data = {
                     id: this.article.info.id,
                     content: this.draft
@@ -115,9 +134,12 @@
                 this.$store.dispatch('UpdateArticle', data).then(() => {
                     this.model = 'read';
                     this.load();
-                    this.draft = ''
                 });
+                this.draft = '';
             }
+        },
+        mounted() {
+            this.load()
         },
         watch: {
             $route() {

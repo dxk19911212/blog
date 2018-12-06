@@ -92,8 +92,8 @@ const actions = {
 
 const mutations = {
     [types.TOGGLE_DEVICE](state, device) {
-        state.device.isMobile = device === 'mobile';
-        state.device.isDesktop = device === 'desktop';
+        state.device.isMobile = device.isMobile;
+        state.device.isDesktop = device.isDesktop;
     },
     [types.GET_TAG_LIST](state, data) {
         state.tags = data;
