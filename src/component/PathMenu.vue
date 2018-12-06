@@ -206,7 +206,6 @@
     @keyframes contract {
         0% {
             top: 10px;
-            transform: scale(0.9, 1.1)
         }
         40% {
             top: -25px;
