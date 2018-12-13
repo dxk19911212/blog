@@ -154,7 +154,8 @@
     @import "~bulma-badge/dist/css/bulma-badge";
 
     section {
-        padding: 3rem 0
+        padding: 3rem 0;
+        min-height: 500px;
     }
 
     .card-left {
@@ -166,7 +167,7 @@
             margin-bottom: .75rem;
             width: 3rem;
             height: 3rem;
-            background: #fff no-repeat 50%;
+            background: white no-repeat 50%;
             border-radius: 50%;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .04);
             cursor: pointer;
@@ -177,7 +178,7 @@
                 border-color: $pink;
                 background: $pink;
                 box-shadow: 0 14px 26px -12px rgba(216, 105, 124, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(209, 105, 116, 0.2);
-                color: #fff;
+                color: white;
             }
 
             &:active {
@@ -197,7 +198,7 @@
     .card {
         margin: -90px 10px 0 10px;
         border-radius: 10px;
-        background-color: #fff;
+        background-color: white;
         box-shadow: 0 2px 5px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .05);
     }
 

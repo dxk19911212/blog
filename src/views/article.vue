@@ -1,14 +1,21 @@
 <template>
-    <section>
-        <div class="container">
-            <div class="column">
-                <ul class="category-list animated bounceInLeft">
-                    <li v-for="item in tags">
-                        <a>{{ item.mark }}</a>
-                        <span class="b-badge gelatine">{{ item.total | formatNum }}</span>
-                    </li>
-                </ul>
+    <div>
+        <div class="category">
+            <ul class="category-list animated bounceInLeft has-text-centered">
+                <li v-for="item in tags">
+                    <a>{{ item.mark }}</a>
+                    <span class="b-badge gelatine">{{ item.total | formatNum }}</span>
+                </li>
+            </ul>
+            <div class="double-down" @click="dropDown">
+                <span class="icon is-large">
+                    <i class="fas fa-angle-double-down"></i>
+                </span>
             </div>
+            <div :style="this.down ? 'height: 200px' : ''">
+            </div>
+        </div>
+        <div class="container">
             <div class="columns is-multiline animated fadeIn">
                 <card v-for="item in article.list"
                       :id="item.id"
@@ -22,7 +29,7 @@
             </div>
         </div>
         <page-bar :current-page="pageNum" :last-page="article.count | getLastPage"/>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -31,7 +38,8 @@
     export default {
         data() {
             return {
-                pageNum: 1
+                pageNum: 1,
+                down: false
             }
         },
         computed: {
@@ -41,6 +49,9 @@
             ])
         },
         methods: {
+            dropDown() {
+                this.down = !this.down
+            },
             loadTag() {
                 this.$store.dispatch('GetTagList').then();
             },
@@ -71,9 +82,9 @@
 <style lang="scss" scoped>
     @import '../assets/customize';
 
-    section {
-        padding: 3rem 0
-    }
+    /*section {*/
+        /*padding: 3rem 0*/
+    /*}*/
 
     .container {
         z-index: 1;
@@ -88,7 +99,7 @@
         white-space: nowrap;
         vertical-align: middle;
         font-size: 0.8rem;
-        color: #fff;
+        color: white;
         text-align: center;
     }
 
@@ -113,47 +124,60 @@
         -webkit-animation-fill-mode: both;
     }
 
-    .category-list {
-        display: flex;
-        justify-content: center;
-        padding-bottom: 30px;
+    .category {
+        position: relative;
+        width: 100%;
+        background: rgba(255,255,255,0.6);
+        border-bottom: 1px solid #e5e5e5;
 
-        li {
-            display: inline-block;
-            margin: 0 10px;
-            position: relative;
-            transition: all .3s;
+        .category-list {
+            justify-content: center;
+            padding: 20px 30px;
+            text-align: center;
 
-            .b-badge {
-                position: absolute;
-                top: -18px;
-                right: -9px;
-                font-weight: 700;
-                justify-content: center;
-                align-items: center;
-                display: none;
-                background: #EA4C89;
-                border-radius: 200px;
-            }
-
-            a {
-                color: #999;
-                border: 1px solid #999;
-                border-radius: 6px;
-                padding: 10px 20px;
+            li {
+                display: inline-block;
+                margin: 0 10px;
+                position: relative;
                 transition: all .3s;
 
-                &:hover {
-                    border-color: $pink;
-                    background: $pink;
-                    box-shadow: 0 14px 26px -12px rgba(216, 105, 124, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(209, 105, 116, 0.2);
-                    color: #fff;
+                .b-badge {
+                    position: absolute;
+                    top: -18px;
+                    right: -9px;
+                    font-weight: 700;
+                    justify-content: center;
+                    align-items: center;
+                    display: none;
+                    background: #EA4C89;
+                    border-radius: 200px;
+                }
 
-                    + .b-badge {
-                        display: block;
+                a {
+                    color: #999;
+                    border: 1px solid #999;
+                    border-radius: 6px;
+                    padding: 5px 10px;
+                    transition: all .3s;
+
+                    &:hover {
+                        border-color: $pink;
+                        background: $pink;
+                        box-shadow: 0 14px 26px -12px rgba(216, 105, 124, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(209, 105, 116, 0.2);
+                        color: white;
+
+                        + .b-badge {
+                            display: block;
+                        }
                     }
                 }
             }
+        }
+
+        .double-down {
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
     }
 

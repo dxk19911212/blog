@@ -20,6 +20,7 @@
 <style lang="scss" scoped>
     .big-title {
         margin-bottom: 3rem;
+        font-family: Pacifico, cursive;
         font-size: 4rem;
         font-weight: 600 !important;
         word-break: break-word;

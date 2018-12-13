@@ -5,6 +5,7 @@ import store from './store'
 import * as filters from './filters'
 import './component'
 
+import '@fortawesome/fontawesome-free/css/brands.min.css'
 import '@fortawesome/fontawesome-free/css/solid.min.css'
 import '@fortawesome/fontawesome-free/css/svg-with-js.min.css'
 import '@fortawesome/fontawesome-free/css/fontawesome.min.css'

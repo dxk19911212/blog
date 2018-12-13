@@ -76,15 +76,11 @@
 
     html {
         font: 14px/20px Arial, sans-serif;
+        background: transparent;
     }
 
     ::selection {
         background: $primary;
-        color: #ffffff;
-    }
-
-    ::-moz-selection {
-        background: $primary;
-        color: #ffffff;
+        color: white;
     }
 </style>

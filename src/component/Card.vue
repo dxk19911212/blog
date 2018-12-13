@@ -64,7 +64,7 @@
     .card {
         margin: 20px;
         border-radius: 10px;
-        background-color: #fff;
+        background-color: white;
         transition: all .2s ease-out;
         box-shadow: 0 2px 5px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .05);
 
@@ -92,7 +92,7 @@
         }
 
         .card-bottom {
-            background-color: #fff;
+            background-color: white;
             position: relative;
             border-bottom-right-radius: 10px;
             border-bottom-left-radius: 10px;

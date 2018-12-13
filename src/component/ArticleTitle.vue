@@ -43,7 +43,7 @@
         img {
             height: 70px;
             width: 70px;
-            border: 3px solid #fff;
+            border: 3px solid white;
             border-radius: 50%;
         }
 
@@ -73,7 +73,7 @@
             outline: none;
             border-color: $pink;
             background-color: $pink;
-            color: #fff;
+            color: white;
             transition: all 0.5s;
 
             &:hover {

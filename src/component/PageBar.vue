@@ -58,7 +58,7 @@
 
             &:hover {
                 z-index: 2;
-                color: #fff;
+                color: white;
                 border-color: #FA7C91;
                 background-color: #FA7C91;
             }
@@ -78,7 +78,7 @@
             align-items: normal;
 
             .pagination-link.is-current {
-                color: #fff;
+                color: white;
                 border-color: #FA7C91;
                 background-color: #FA7C91;
             }

@@ -1,130 +1,133 @@
 <template>
-    <section class="hero is-primary is-small background">
-        <div id="hero-head-clone" :class="scroll === 'up' ? 'is-active' : ''" class="hero-head fixed">
-            <nav class="navbar">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <a class="navbar-item">
-                            <img class="logo" src="https://pic.iishoni.com/avatar.jpg">
-                        </a>
-                        <span id="navbar-burger-clone" class="navbar-burger burger clone"
-                              data-target="navbar-menu-clone" @click="showCloneBurger">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </span>
-                    </div>
-                    <div id="navbar-menu-clone" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a class="navbar-item">
-                                <router-link :to="'/'">主页</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">标签</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">归档</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">后台</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">关于我</router-link>
-                            </a>
-                            <span class="navbar-item">
-                                    <a class="button is-primary is-inverted">
-                                        <span class="icon">
-                                            <i class="fas fa-user"></i>
-                                        </span>
-                                        <span>登录</span>
-                                    </a>
-                                </span>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
+    <section class="hero background">
+        <!--<div id="hero-head-clone" :class="scroll === 'up' ? 'is-active' : ''" class="hero-head fixed">-->
+            <!--<nav class="navbar">-->
+                <!--<div class="container">-->
+                    <!--<div class="navbar-brand">-->
+                        <!--<a class="navbar-item">-->
+                            <!--<img :src="handleCloneBrandImg" alt="" @click="backHome">-->
+                        <!--</a>-->
+                        <!--<span id="navbar-burger-clone" class="navbar-burger burger clone"-->
+                              <!--data-target="navbar-menu-clone" @click="showCloneBurger">-->
+                                <!--<span></span>-->
+                                <!--<span></span>-->
+                                <!--<span></span>-->
+                            <!--</span>-->
+                    <!--</div>-->
+                    <!--<div id="navbar-menu-clone" class="navbar-menu ">-->
+                        <!--<div class="navbar-end">-->
+                            <!--<a class="navbar-item">-->
+                                <!--<router-link :to="'/'">主页</router-link>-->
+                            <!--</a>-->
+                            <!--<a class="navbar-item">-->
+                                <!--<router-link :to="'/'">标签</router-link>-->
+                            <!--</a>-->
+                            <!--<a class="navbar-item">-->
+                                <!--<router-link :to="'/'">归档</router-link>-->
+                            <!--</a>-->
+                            <!--<a class="navbar-item">-->
+                                <!--<router-link :to="'/'">后台</router-link>-->
+                            <!--</a>-->
+                            <!--<a class="navbar-item">-->
+                                <!--<router-link :to="'/'">关于我</router-link>-->
+                            <!--</a>-->
+                            <!--<span class="navbar-item">-->
+                                    <!--<a class="button is-primary is-inverted">-->
+                                        <!--<span class="icon">-->
+                                            <!--<i class="fas fa-user"></i>-->
+                                        <!--</span>-->
+                                        <!--<span>登录</span>-->
+                                    <!--</a>-->
+                                <!--</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</nav>-->
+        <!--</div>-->
 
         <div class="hero-head animated fadeInDown">
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar-brand">
                         <a class="navbar-item">
-                            <img class="logo" src="https://pic.iishoni.com/avatar.jpg">
+                            <img :src="handleBrandImg" alt="" @click="backHome">
+                        </a>
+                        <a class="navbar-item" style="margin-left: 25%" v-if="this.device.isMobile">
+                            <img src="https://pic.iishoni.com/logo-white.svg" alt="" @click="backHome">
                         </a>
                         <span id="navbar-burger" class="navbar-burger burger" data-target="navbarMenu"
                               @click="showBurger">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
                     </div>
-                    <div id="navbarMenu" class="navbar-menu">
+                    <div id="navbarMenu" class="navbar-menu background">
+                        <div class="navbar-start">
+                            <a class="navbar-item">
+                                <router-link :to="'/'">Tags</router-link>
+                            </a>
+                            <a class="navbar-item">
+                                <router-link :to="'/'">Archive</router-link>
+                            </a>
+                            <a class="navbar-item">
+                                <router-link :to="'/'">Backstage</router-link>
+                            </a>
+                            <a class="navbar-item">
+                                <router-link :to="'/'">About</router-link>
+                            </a>
+                        </div>
                         <div class="navbar-end">
-                            <a class="navbar-item">
-                                <router-link :to="'/'">主页</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">标签</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">归档</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">后台</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">关于我</router-link>
-                            </a>
                             <span class="navbar-item">
-                                <a class="button is-primary is-inverted">
-                                    <span class="icon">
-                                        <i class="fas fa-user"></i>
-                                    </span>
-                                    <span>登录</span>
-                                </a>
+                                <label>
+                                    <input type="text" class="input is-rounded">
+                                </label>
                             </span>
+                            <span class="navbar-item">
+                                <a>Sign in</a>
+                            </span>
+                            <!--<span class="navbar-item">-->
+                                <!--<a class="button is-primary is-inverted">-->
+                                    <!--<span class="icon">-->
+                                        <!--<i class="fas fa-user"></i>-->
+                                    <!--</span>-->
+                                    <!--<span>登录</span>-->
+                                <!--</a>-->
+                            <!--</span>-->
                         </div>
                     </div>
                 </div>
             </nav>
         </div>
-
-        <div class="hero-body animated fadeIn">
-            <div class="container" v-if="this.name === 'list'">
-                <home-title/>
-            </div>
-            <div class="container" v-else>
-                <article-title/>
-            </div>
-        </div>
-
-        <!--<div class="hero-foot animated fadeIn" v-if="path !== '/detail'">-->
-            <!--<nav class="tabs is-boxed is-fullwidth">-->
-                <!--<div class="container">-->
-                    <!--<ul>-->
-                        <!--<li><a>文章</a></li>-->
-                        <!--<li><a>视频</a></li>-->
-                        <!--<li><a>图片</a></li>-->
-                        <!--<li><a>资源下载</a></li>-->
-                        <!--<li><a>归档</a></li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-            <!--</nav>-->
-        <!--</div>-->
     </section>
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
+    import {IMG_URL} from '../utils/constant'
+
     export default {
         data() {
             return {
-                name: '',
                 YOffset: window.pageYOffset,
                 scroll: ''
             }
         },
+        computed: {
+            ...mapGetters([
+                'device'
+            ]),
+            handleCloneBrandImg() {
+                return IMG_URL + (this.device.isMobile ? 'brand.png' : 'logo-pink.svg');
+            },
+            handleBrandImg() {
+                return IMG_URL + (this.device.isMobile ? 'brand.png' : 'logo-white.svg');
+            }
+        },
         methods: {
+            backHome() {
+                this.$router.push('/');
+            },
             showCloneBurger() {
                 const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('#navbar-burger-clone'), 0);
                 if ($navbarBurgers.length > 0) {
@@ -179,17 +182,11 @@
             }
         },
         mounted() {
-            this.name = this.$route.name;
             const handler = () => {
                 this.watchScroll();
                 this.hideBurger()
             };
             window.addEventListener('scroll', handler);
-        },
-        watch: {
-            $route(to) {
-                this.name = to.name
-            }
         }
     }
 </script>
@@ -197,31 +194,19 @@
 <style lang="scss" scoped>
     @import '../assets/customize';
 
-    .logo {
-        max-height: 3rem !important;
-        height: 4rem;
-        border-radius: 100px;
-    }
-
     .navbar-burger {
         height: 4rem;
         width: 4rem;
     }
 
-    @keyframes bg-animate {
-        from {
-            background-position: 0 0
-        }
-        to {
-            background-position: 0 -350px
-        }
-    }
-
     .background {
-        /*background: #00d1b2 url("https://pic.iishoni.com/bg.svg") repeat 0 0;*/
-        /*animation: 4s linear 0s normal none infinite bg-animate;*/
-        background: linear-gradient(45deg, #5761b4 0%, #c142a0 100%);
-        box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+        /*background: linear-gradient(45deg, #5761b4 0%, #c142a0 100%);*/
+        /*box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);*/
+        /*width: 100%;*/
+        /*height: 60px;*/
+        background: rgba(47,47,47,0.98);
+        /*z-index: 99;*/
+        color: white;
     }
 
     .container {
@@ -230,7 +215,7 @@
 
     .fixed {
         width: 100%;
-        background: #fff;
+        background: white;
         position: fixed;
         top: 0;
         left: 0;
@@ -252,7 +237,7 @@
     }
 
     #navbar-menu-clone {
-        background-color: #fff;
+        background-color: white;
 
         .navbar-item {
             text-align: center;
@@ -264,5 +249,9 @@
                 background-color: #c5c5c5;
             }
         }
+    }
+
+    .navbar-menu {
+        /*background: linear-gradient(45deg, #5761b4 0%, #c142a0 100%);*/
     }
 </style>
