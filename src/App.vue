@@ -76,7 +76,8 @@
 
     html {
         font: 14px/20px Arial, sans-serif;
-        background: transparent;
+        background: rgba(47, 47, 47, 0.98);
+        -webkit-tap-highlight-color: transparent;
     }
 
     ::selection {

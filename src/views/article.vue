@@ -7,13 +7,6 @@
                     <span class="b-badge gelatine">{{ item.total | formatNum }}</span>
                 </li>
             </ul>
-            <div class="double-down" @click="dropDown">
-                <span class="icon is-large">
-                    <i class="fas fa-angle-double-down"></i>
-                </span>
-            </div>
-            <div :style="this.down ? 'height: 200px' : ''">
-            </div>
         </div>
         <div class="container">
             <div class="columns is-multiline animated fadeIn">
@@ -28,7 +21,7 @@
                       @load="loadArticleInfo(item.id)"/>
             </div>
         </div>
-        <page-bar :current-page="pageNum" :last-page="article.count | getLastPage"/>
+        <page-bar :current-page="parseInt(pageNum)" :last-page="article.count | getLastPage"/>
     </div>
 </template>
 
@@ -38,8 +31,7 @@
     export default {
         data() {
             return {
-                pageNum: 1,
-                down: false
+                pageNum: 1
             }
         },
         computed: {
@@ -49,9 +41,6 @@
             ])
         },
         methods: {
-            dropDown() {
-                this.down = !this.down
-            },
             loadTag() {
                 this.$store.dispatch('GetTagList').then();
             },
@@ -67,13 +56,14 @@
             }
         },
         mounted() {
+            this.pageNum = this.$route.params.page;
             this.loadTag();
             this.loadArticle();
         },
         watch: {
             $route() {
                 this.pageNum = this.$route.params.page;
-                // this.loadArticle();
+                this.loadArticle();
             }
         }
     }
@@ -132,12 +122,12 @@
 
         .category-list {
             justify-content: center;
-            padding: 20px 30px;
+            padding: 10px 30px;
             text-align: center;
 
             li {
                 display: inline-block;
-                margin: 0 10px;
+                margin: 12px 10px;
                 position: relative;
                 transition: all .3s;
 
@@ -172,12 +162,6 @@
                     }
                 }
             }
-        }
-
-        .double-down {
-            position: absolute;
-            top: 10px;
-            right: 10px;
         }
     }
 

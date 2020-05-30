@@ -10,28 +10,28 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "vue-hot-reload-api": "^2.3.1",
-    "vue-router": "^3.0.1"
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-router": "^3.0.6"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.5.0",
-    "@vue/component-compiler-utils": "^2.3.0",
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "@vue/component-compiler-utils": "^3.0.0",
     "animate.css": "^3.7.0",
     "auto-textarea": "^1.4.0",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "bulma": "^0.7.2",
+    "bulma": "^0.7.4",
     "bulma-badge": "^2.0.0",
-    "current-device": "^0.7.8",
-    "highlight.js": "^9.13.1",
+    "current-device": "^0.8.0",
+    "highlight.js": "^9.15.6",
     "markdown-it": "^8.4.2",
     "markdown-it-container": "^2.0.0",
-    "node-sass": "^4.10.0",
-    "parcel": "^1.10.3",
-    "vue": "^2.5.17",
+    "node-sass": "^4.12.0",
+    "parcel": "^1.12.3",
+    "vue": "^2.6.10",
     "vue-bulma-pagination": "^1.2.0",
-    "vue-template-compiler": "^2.5.17",
-    "vuex": "^3.0.1"
+    "vue-template-compiler": "^2.6.10",
+    "vuex": "^3.1.0"
   }
 }

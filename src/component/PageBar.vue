@@ -5,7 +5,7 @@
             <div class="column">
                 <pagination class="is-rounded is-centered is-large"
                             :url-builder="page => ({ params: { page } })"
-                            :current-page="parseInt(currentPage)"
+                            :current-page="currentPage"
                             :last-page="lastPage"
                             :display-page="6"
                             :prev="'«'"

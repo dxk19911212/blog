@@ -1,17 +1,37 @@
 <template>
     <section>
+        <div class="jobs">
+            <div class="column">
+                <!--<h1 class="title big-title animated bounceIn">-->
+                <!--String的重用-->
+                <!--</h1>-->
+                <div class="title-avatar has-text-centered">
+                    <img class="animated rubberBand" :src="avatar" alt="Logo">
+                    <div class="title-meta animated fadeIn">
+                        <div class="author-name">
+                            Posted by
+                            <span>Xiaokang</span>
+                        </div>
+                        <div class="timestamp">
+                            on
+                            <span>2018-06-22</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="columns is-multiline">
                 <path-menu :style="device.isDesktop ? '' : 'display: none;'" :menu-item="this.menus"></path-menu>
                 <div class="column is-hidden-touch is-1-desktop">
                     <div class="card-left">
-                        <div class="badge-button badge animated bounceInLeft button-1" data-badge="1,530"
+                        <div class="badge-button badge animated bounceInLeft button-1" data-badge="0"
                              :style="this.model === 'read' ? '' : 'display: none'">
                             <span class="icon is-large">
                                 <i class="fas fa-heart"></i>
                             </span>
                         </div>
-                        <div class="badge-button badge animated bounceInLeft button-2" data-badge="2,470"
+                        <div class="badge-button badge animated bounceInLeft button-2" data-badge="0"
                              :style="this.model === 'read' ? '' : 'display: none'">
                             <span class="icon is-large">
                                 <i class="fas fa-eye"></i>
@@ -75,10 +95,12 @@
 
 <script>
     import {mapGetters} from 'vuex'
+    import {IMG_URL, AVATAR} from '../utils/constant'
 
     export default {
         data() {
             return {
+                avatar: IMG_URL + AVATAR,
                 draft: '',
                 model: 'read',
                 menus: [
@@ -154,13 +176,43 @@
     @import "~bulma-badge/dist/css/bulma-badge";
 
     section {
-        padding: 3rem 0;
+        padding-bottom: 5rem;
         min-height: 500px;
+    }
+
+    .jobs {
+        padding: 20px 0;
+        color: white;
+        background: linear-gradient(45deg, #5761b4 0%, #c142a0 100%);
+
+        .title-avatar {
+            img {
+                height: 70px;
+                width: 70px;
+                border: 3px solid white;
+                border-radius: 50%;
+            }
+
+            .title-meta {
+                margin-bottom: 30px;
+
+                .author-name span {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                }
+
+                .timestamp span {
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+            }
+        }
     }
 
     .card-left {
         position: fixed;
-        /*top: 35rem;*/
+        top: 25rem;
 
         .badge-button {
             position: relative;
@@ -196,7 +248,7 @@
     }
 
     .card {
-        margin: -90px 10px 0 10px;
+        margin: -40px 10px 0 10px;
         border-radius: 10px;
         background-color: white;
         box-shadow: 0 2px 5px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .05);

@@ -45,55 +45,49 @@
             <!--</nav>-->
         <!--</div>-->
 
-        <div class="hero-head animated fadeInDown">
+        <div class="hero-head animated fadeInDown background">
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar-brand">
                         <a class="navbar-item">
                             <img :src="handleBrandImg" alt="" @click="backHome">
                         </a>
-                        <a class="navbar-item" style="margin-left: 25%" v-if="this.device.isMobile">
-                            <img src="https://pic.iishoni.com/logo-white.svg" alt="" @click="backHome">
-                        </a>
-                        <span id="navbar-burger" class="navbar-burger burger" data-target="navbarMenu"
-                              @click="showBurger">
+                        <span id="navbar-burger" class="navbar-burger burger" data-target="navbarMenu" @click="showBurger">
                             <span></span>
                             <span></span>
                             <span></span>
                         </span>
                     </div>
                     <div id="navbarMenu" class="navbar-menu background">
-                        <div class="navbar-start">
-                            <a class="navbar-item">
-                                <router-link :to="'/'">Tags</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">Archive</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">Backstage</router-link>
-                            </a>
-                            <a class="navbar-item">
-                                <router-link :to="'/'">About</router-link>
-                            </a>
-                        </div>
+<!--                        <div class="navbar-start">-->
+<!--                            <a class="navbar-item">-->
+<!--                                <router-link :to="'/'">Tags</router-link>-->
+<!--                            </a>-->
+<!--                            <a class="navbar-item">-->
+<!--                                <router-link :to="'/'">Archive</router-link>-->
+<!--                            </a>-->
+<!--                            <a class="navbar-item">-->
+<!--                                <router-link :to="'/'">Backstage</router-link>-->
+<!--                            </a>-->
+<!--                            <a class="navbar-item">-->
+<!--                                <router-link :to="'/'">About</router-link>-->
+<!--                            </a>-->
+<!--                        </div>-->
                         <div class="navbar-end">
                             <span class="navbar-item">
-                                <label>
-                                    <input type="text" class="input is-rounded">
-                                </label>
+                                <div>
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div>
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                <div>
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <div>
+                                    <i class="fas fa-user"></i>
+                                </div>
                             </span>
-                            <span class="navbar-item">
-                                <a>Sign in</a>
-                            </span>
-                            <!--<span class="navbar-item">-->
-                                <!--<a class="button is-primary is-inverted">-->
-                                    <!--<span class="icon">-->
-                                        <!--<i class="fas fa-user"></i>-->
-                                    <!--</span>-->
-                                    <!--<span>登录</span>-->
-                                <!--</a>-->
-                            <!--</span>-->
                         </div>
                     </div>
                 </div>
@@ -104,13 +98,14 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import {IMG_URL} from '../utils/constant'
+    import {IMG_URL, BRAND, LOGO_PINK, LOGO_WHITE} from '../utils/constant'
 
     export default {
         data() {
             return {
                 YOffset: window.pageYOffset,
-                scroll: ''
+                scroll: '',
+                logoUrl: IMG_URL + ''
             }
         },
         computed: {
@@ -118,10 +113,10 @@
                 'device'
             ]),
             handleCloneBrandImg() {
-                return IMG_URL + (this.device.isMobile ? 'brand.png' : 'logo-pink.svg');
+                return IMG_URL + (this.device.isMobile ? BRAND : LOGO_PINK);
             },
             handleBrandImg() {
-                return IMG_URL + (this.device.isMobile ? 'brand.png' : 'logo-white.svg');
+                return IMG_URL + (this.device.isMobile ? BRAND : LOGO_WHITE);
             }
         },
         methods: {
@@ -204,13 +199,31 @@
         /*box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);*/
         /*width: 100%;*/
         /*height: 60px;*/
-        background: rgba(47,47,47,0.98);
+        background: rgba(47, 47, 47, 0.98);
         /*z-index: 99;*/
         color: white;
     }
 
     .container {
         position: relative;
+
+        i {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            margin: 0 5px 0 5px;
+            padding: 7px 0 0 8px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all .5s;
+
+            &:hover {
+                border-color: $pink;
+                background: $pink;
+                box-shadow: 0 14px 26px -12px rgba(216, 105, 124, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(209, 105, 116, 0.2);
+                color: white;
+            }
+        }
     }
 
     .fixed {

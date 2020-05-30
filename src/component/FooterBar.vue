@@ -33,7 +33,7 @@
             </div>
             <div class="column is-3 is-offset-1 footer-mod">
                 <div class="links">
-                    <a class="link-head">LINKS</a>
+                    <a class="link-head">Links</a>
                     <ul>
                         <li>
                             <a href="/">Tags</a>
@@ -42,16 +42,10 @@
                             <a href="/">Archive</a>
                         </li>
                         <li>
-                            <a href="/">Backstage</a>
+                            <a href="/">Message Board</a>
                         </li>
                         <li>
-                            <a href="/">Timeline</a>
-                        </li>
-                        <li>
-                            <a href="/">About</a>
-                        </li>
-                        <li>
-                            <a href="/">FAQ</a>
+                            <a href="https://admin.iishoni.com" target="_blank">Backstage</a>
                         </li>
                     </ul>
                 </div>
@@ -91,7 +85,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import {IMG_URL} from '../utils/constant'
+    import {IMG_URL, BRAND, LOGO_GREY} from '../utils/constant'
 
     export default {
         data() {
@@ -104,8 +98,8 @@
                     class: ''
                 },
                 show: false,
-                logoUrl: IMG_URL + 'logo-grey.svg',
-                brandUrl: IMG_URL + 'brand.png'
+                logoUrl: IMG_URL + LOGO_GREY,
+                brandUrl: IMG_URL + BRAND
             }
         },
         computed: {
@@ -242,6 +236,7 @@
                         color: #777;
                         margin: 0 10px;
                         text-decoration: underline;
+                        transition: all .5s;
 
                         &:hover {
                             color: white;

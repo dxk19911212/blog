@@ -15,10 +15,10 @@
                     </div>
                     <div class="pull-right">
                         <div class="view-love">
-                            <span class="icon">
-                                <i class="fas fa-heart"></i>
-                            </span>
-                            <span>{{ views | formatNum }}</span>
+<!--                            <span class="icon">-->
+<!--                                <i class="fas fa-heart"></i>-->
+<!--                            </span>-->
+<!--                            <span>{{ views | formatNum }}</span>-->
                             <span class="icon">
                                 <i class="fas fa-eye"></i>
                             </span>
@@ -131,6 +131,10 @@
                         color: rgba(67, 91, 113, .5);
                         display: inline-block;
                         vertical-align: middle;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
 
