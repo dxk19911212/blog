@@ -100,6 +100,7 @@
     export default {
         data() {
             return {
+                articleId: null,
                 avatar: IMG_URL + AVATAR,
                 draft: '',
                 model: 'read',
@@ -134,8 +135,10 @@
         },
         methods: {
             load() {
-                this.$store.dispatch('GetArticleInfo', this.article.info.id).then();
+                const id = this.articleId == null ? this.article.info.id : this.articleId;
+                this.$store.dispatch('GetArticleInfo', id).then();
                 this.draft = this.article.info.content;
+                this.articleId = this.article.info.id;
             },
             edit() {
                 this.model = 'write';
@@ -161,12 +164,8 @@
             }
         },
         mounted() {
+            this.articleId = this.$route.params.id;
             this.load()
-        },
-        watch: {
-            $route() {
-                this.id = this.$route.params.id;
-            }
         }
     }
 </script>
