@@ -84,8 +84,8 @@
                                 <div>
                                     <i class="fas fa-comment-dots"></i>
                                 </div>
-                                <div>
-                                    <i class="fas fa-user"></i>
+                                <div @click="login()">
+                                    <i class="fas fa-user"  @click="login()"></i>
                                 </div>
                             </span>
                         </div>
@@ -93,6 +93,25 @@
                 </div>
             </nav>
         </div>
+
+<!--        <div class="common" :class="showLoginModal ? 'is-active' : ''">-->
+<!--            <div class="common-background"></div>-->
+<!--            <div class="common-card">-->
+<!--                <header class="common-card-head">-->
+<!--                    <p class="common-card-title">请登录</p>-->
+<!--                    <button class="delete" aria-label="close"></button>-->
+<!--                </header>-->
+<!--                <section class="common-card-body">-->
+<!--                    &lt;!&ndash; Content ... &ndash;&gt;-->
+<!--                </section>-->
+<!--                <footer class="common-card-foot">-->
+<!--                    <button class="button is-success">Save changes</button>-->
+<!--                    <button class="button">Cancel</button>-->
+<!--                </footer>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <login-modal :visible="showLoginModal" @close="closeModal"/>
     </section>
 </template>
 
@@ -103,6 +122,7 @@
     export default {
         data() {
             return {
+                showLoginModal: false,
                 YOffset: window.pageYOffset,
                 scroll: '',
                 logoUrl: IMG_URL + ''
@@ -174,6 +194,12 @@
                     }
                 }
                 this.YOffset = nowYOffset
+            },
+            login() {
+                this.showLoginModal = true
+            },
+            closeModal() {
+                this.showLoginModal = false
             }
         },
         mounted() {

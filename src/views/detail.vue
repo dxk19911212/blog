@@ -25,13 +25,13 @@
                 <path-menu :style="device.isDesktop ? '' : 'display: none;'" :menu-item="this.menus"></path-menu>
                 <div class="column is-hidden-touch is-1-desktop">
                     <div class="card-left">
-                        <div class="badge-button badge animated bounceInLeft button-1" data-badge="0"
+                        <div class="badge-button animated bounceInLeft button-1"
                              :style="this.model === 'read' ? '' : 'display: none'">
                             <span class="icon is-large">
                                 <i class="fas fa-heart"></i>
                             </span>
                         </div>
-                        <div class="badge-button badge animated bounceInLeft button-2" data-badge="0"
+                        <div class="badge-button animated bounceInLeft button-2"
                              :style="this.model === 'read' ? '' : 'display: none'">
                             <span class="icon is-large">
                                 <i class="fas fa-eye"></i>
@@ -172,7 +172,6 @@
 
 <style lang="scss" scoped>
     @import '../assets/customize';
-    @import "~bulma-badge/dist/css/bulma-badge";
 
     section {
         padding-bottom: 5rem;

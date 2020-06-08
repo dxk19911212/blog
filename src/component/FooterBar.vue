@@ -1,9 +1,9 @@
 <template>
     <footer class="footer has-text-centered-mobile">
         <div class="columns">
-            <div class="column is-3 is-offset-1 footer-mod">
+            <div class="column is-3 is-offset-1 footer-slogan">
                 <p class="logo">
-                    <img :src="logoUrl" width="120px" alt="">
+                    <img :src="logoUrl" alt="">
                 </p>
                 <p class="desc">
                     A collection of what we share together
@@ -31,55 +31,57 @@
                     </a>
                 </p>
             </div>
-            <div class="column is-3 is-offset-1 footer-mod">
-                <div class="links">
-                    <a class="link-head">Links</a>
-                    <ul>
-                        <li>
-                            <a href="/">Tags</a>
-                        </li>
-                        <li>
-                            <a href="/">Archive</a>
-                        </li>
-                        <li>
-                            <a href="/">Message Board</a>
-                        </li>
-                        <li>
-                            <a href="https://admin.iishoni.com" target="_blank">Backstage</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="column is-3 is-offset-1 footer-links">
+                <a class="link-head">Links</a>
+                <ul>
+                    <li>
+                        <a href="/">Tags</a>
+                    </li>
+                    <li>
+                        <a href="/">Archive</a>
+                    </li>
+                    <li>
+                        <a href="/">Message Board</a>
+                    </li>
+                    <li>
+                        <a href="https://admin.iishoni.com" target="_blank">Backstage</a>
+                    </li>
+                </ul>
             </div>
-            <div class="column is-4 footer-mod">
-                <div class="post-total has-text-left">
-                    <div class="post-cube" :style="[handleStyle1]">
-                        <strong>{{posted}}</strong>
-                        <p>articles posted</p>
+            <div class="column is-4 footer-statistic">
+                <div class="columns is-mobile">
+                    <div class="column">
+                        <img class="" :src="brandUrl" alt="">
+                        <div class="column post-total">
+                            <strong>{{posted}}</strong>
+                            <p>articles posted</p>
+                        </div>
                     </div>
                 </div>
-                <div class="action">
-                    <div class="action-cube" :style="[handleStyle2]">
-                        <a class="sign-up">Sign up</a>
-                        <a class="sign-in">Sign in</a>
+                <div class="columns is-mobile">
+                    <div class="column action-cube">
+                        <a class="sign-up" @click="toRegister">注册</a>
+                        <a class="sign-in" @click="toLogin">登录</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="columns">
-            <div class="column is-3 is-offset-1 footer-mod">
-                <div class="remote">
+            <div class="column is-3 is-offset-1">
+                <div class="remote" :style="handleStyle">
                     Made with remotely from
                     <transition name="slide-fade">
-                        <span class="shadow" :class="this.remote.class" v-if="this.show">{{ remote.text }}</span>
+                        <span class="shadow" :class="this.remote.class" v-if="this.showRemote">{{ remote.text }}</span>
                     </transition>
                 </div>
             </div>
-            <div class="column is-7 is-offset-1 footer-mod">
+            <div class="column is-7 is-offset-1">
                 <p class="network">
                     © 2018 iishoni. All rights reserved.
                 </p>
             </div>
         </div>
+        <login-modal :visible="showLoginModal" :login="isLogin" @close="closeModal"/>
     </footer>
 </template>
 
@@ -97,7 +99,9 @@
                     text: '',
                     class: ''
                 },
-                show: false,
+                showRemote: false,
+                showLoginModal: false,
+                isLogin: true,
                 logoUrl: IMG_URL + LOGO_GREY,
                 brandUrl: IMG_URL + BRAND
             }
@@ -106,13 +110,8 @@
             ...mapGetters([
                 'device'
             ]),
-            handleStyle1() {
-                let margin = this.device.isMobile ? {'margin': '0 auto'} : '';
-                let backgroundImg = {'background-image': 'url(' + this.brandUrl + ')'};
-                return Object.assign(margin, backgroundImg);
-            },
-            handleStyle2() {
-                return this.device.isMobile ? {'margin': '0 auto'} : '';
+            handleStyle() {
+                return this.device.isMobile ? {'margin-top': '30px'} : '';
             }
         },
         methods: {
@@ -120,8 +119,19 @@
                 let index = parseInt(new Date().getSeconds() / this.textList.length) % this.textList.length;
                 this.remote.text = this.textList[index];
                 this.remote.class = this.classList[index];
-                this.show = !this.show;
-                setTimeout(() => this.show = !this.show, 4000)
+                this.showRemote = !this.showRemote;
+                setTimeout(() => this.showRemote = !this.showRemote, 4000)
+            },
+            toLogin() {
+                this.showLoginModal = true
+                this.isLogin = true;
+            },
+            toRegister() {
+                this.showLoginModal = true
+                this.isLogin = false;
+            },
+            closeModal() {
+                this.showLoginModal = false
             }
         },
         mounted() {
@@ -141,22 +151,25 @@
         /*box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);*/
     }
 
-    .footer-mod {
+    .footer-slogan {
         color: #999;
         word-break: break-word;
 
+        .logo img {
+            width: 120px;
+        }
+
         .desc {
-            font-size: 1rem;
             font-weight: 600;
         }
 
         .about {
-            margin-top: 1rem;
+            margin-top: 16px;
         }
 
         .follow {
-            margin-top: 2rem;
-            font-size: 1.5rem;
+            margin-top: 28px;
+            font-size: 20px;
 
             a {
                 color: #999;
@@ -167,91 +180,86 @@
                 }
             }
         }
+    }
 
-        .links {
-            .link-head {
-                color: #999;
-                font-size: 1.5rem;
-                font-weight: 600;
-                margin-bottom: 20px;
-                line-height: 2.5;
-            }
+    .footer-statistic {
+        color: #999;
+        word-break: break-word;
 
-            ul li {
-                font-size: 1rem;
-                font-weight: 500;
-
-                a {
-                    color: #999;
-                    line-height: 2;
-                }
-            }
+        img {
+            height: 50px;
+            padding-top: 10px;
         }
 
         .post-total {
             color: #777;
             font-weight: 600;
-            display: flex;
+            display: inline-block;
 
-            .post-cube {
-                background-size: 75px 50px;
-                background-repeat: no-repeat;
-                background-position: 0 50%;
-                padding-left: 75px;
-
-                strong {
-                    display: block;
-                    margin-left: 10px;
-                    font-size: 1.5em;
-                }
-
-                p {
-                    margin-left: 10px;
-                }
+            strong {
+                font-size: 20px;
             }
         }
 
-        .action {
-            margin: 20px 0;
-            display: flex;
+        .action-cube {
+            margin-top: 10px;
 
-            .action-cube {
-                display: flex;
+            a {
+                font-size: 1rem;
+                font-weight: 600;
+                margin-right: 15px;
+                padding: 10px 35px;
+                border-radius: 30px;
 
-                a {
-                    border-radius: 30px;
-                    padding: 10px 30px;
-                    font-size: 1rem;
-                    font-weight: 600;
+                &.sign-up {
+                    color: white;
+                    border-color: $purple;
+                    background: $purple;
+                    box-shadow: 0 14px 26px -12px rgba(216, 105, 124, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(209, 105, 116, 0.2);
 
-                    &.sign-up {
+                    &:hover {
                         color: white;
-                        margin: 0 10px;
-                        border-color: $purple;
-                        background: $purple;
+                        background-color: #f082ac;
+                    }
+                }
+
+                &.sign-in {
+                    color: #777;
+                    text-decoration: underline;
+                    transition: all .5s;
+
+                    &:hover {
+                        color: white;
+                        background: $pink;
                         box-shadow: 0 14px 26px -12px rgba(216, 105, 124, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(209, 105, 116, 0.2);
                     }
-
-                    &.sign-in {
-                        color: #777;
-                        margin: 0 10px;
-                        text-decoration: underline;
-                        transition: all .5s;
-
-                        &:hover {
-                            color: white;
-                            text-decoration: none;
-                            background: $pink;
-                            box-shadow: 0 14px 26px -12px rgba(216, 105, 124, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(209, 105, 116, 0.2);
-                        }
-                    }
                 }
             }
         }
+    }
 
-        .network {
-            font-weight: 600 !important;
+    .footer-links {
+        .link-head {
+            color: #999;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 2.5;
         }
+
+        ul li {
+            font-size: 1rem;
+            font-weight: 500;
+
+            a {
+                color: #999;
+                line-height: 2;
+            }
+        }
+    }
+
+    .network {
+        font-weight: 600 !important;
     }
 
     .shadow {
